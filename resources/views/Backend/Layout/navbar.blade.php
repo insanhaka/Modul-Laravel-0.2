@@ -13,7 +13,11 @@
                 </a>
             </li>
             <li>
-                <h6 class="font-weight-bolder mb-0">Dashboard</h6>
+              <h6 class="font-weight-bolder mb-0">{!! Label::label1() !!}</h6>
+              <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
+                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
+                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{!! Label::label2() !!}</li>
+              </ol>
             </li>
         </ol>
       </nav>
@@ -24,8 +28,9 @@
             <li class="nav-item dropdown pe-2 d-flex align-items-center">
                 <a href="javascript:;" class="btn" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 10px;">
                   <span class="d-sm-inline d-none">Hi, {{ Auth::user()->name }}</span>
+                  <span class="d-sm-inline d-none" id="breadmenu">=</span>
                 </a>
-                <ul class="dropdown-menu  dropdown-menu-end  px-2 py-3 me-sm-n4" style="margin-top: 35px !important" aria-labelledby="dropdownMenuButton">
+                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" id="dropbreadmenu" aria-labelledby="dropdownMenuButton">
                     <li class="mb-2">
                         <a class="dropdown-item border-radius-md" href="/profil/user">
                           <div class="d-flex py-1">

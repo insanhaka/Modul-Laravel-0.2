@@ -172,6 +172,7 @@ return [
          * Custome Service Providers...
          */
         App\Providers\Back_menuServiceProvider::class,
+        App\Providers\LabelServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -239,6 +240,7 @@ return [
         'DataTables' => Yajra\DataTables\Facades\DataTables::class,
 
         'BackMenu' => App\Helpers\Back_menu::class,
+        'Label' => App\Helpers\Label::class,
 
     ],
 
