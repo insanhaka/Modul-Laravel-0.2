@@ -24,6 +24,39 @@
           border-color: #0fbcf9;
           box-shadow: 0 0 0 0.1rem #fff;
           }
+        table td {
+          font-size: 14px;
+        }
+        .table {
+            font-size: 14px;
+            width: 100% !important;
+        }
+        .table thead th {
+            padding: 0;
+            padding-bottom: 1%;
+            padding-left: 1%;
+        }
+        .dataTables_scrollBody::-webkit-scrollbar {
+            height: 10px !important;
+            background-color: #ccc;
+        }
+        .dataTables_scrollBody::-webkit-scrollbar-track
+        {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            border-radius: 10px;
+            background-color: #F5F5F5;
+        }
+        .dataTables_scrollBody::-webkit-scrollbar
+        {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+        .dataTables_scrollBody::-webkit-scrollbar-thumb
+        {
+            border-radius: 10px;
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #d2dae2;
+        }
     </style>
     @yield('css')
 </head>

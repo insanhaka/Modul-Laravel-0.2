@@ -17,6 +17,8 @@ use App\Http\Controllers\Super_UserController;
 use App\Http\Controllers\Super_RoleController;
 use App\Http\Controllers\Super_MenuController;
 use App\Http\Controllers\Super_PermissionController;
+use App\Http\Controllers\Super_ApiheaderController;
+use App\Http\Controllers\Super_BaseurlController;
 
 /*
 |--------------------------------------------------------------------------
@@ -79,6 +81,15 @@ Route::group(['prefix' => 'super', 'middleware' => 'auth'], function() {
     Route::resource('permission', Super_PermissionController::class);
     Route::get('/permission/{id}/delete', [Super_PermissionController::class, 'delete'])->name('permission.delete');
     // Route::get('/permission-serverside', [Super_RoleController::class, 'serverside'])->name('role.serverside');
+
+    Route::resource('api-header', Super_ApiheaderController::class);
+    Route::get('/api-header/{id}/delete', [Super_ApiheaderController::class, 'delete'])->name('api-header.delete');
+    Route::get('/api-header/{id}/activation/{data}', [Super_ApiheaderController::class, 'activation'])->name('api-header.activation');
+    Route::get('/api-header-serverside', [Super_ApiheaderController::class, 'serverside'])->name('api-header.serverside');
+
+    Route::resource('base-url', Super_BaseurlController::class);
+    Route::get('/base-url/{id}/delete', [Super_BaseurlController::class, 'delete'])->name('base-url.delete');
+    Route::get('/base-url-serverside', [Super_BaseurlController::class, 'serverside'])->name('base-url.serverside');
 
 });
 

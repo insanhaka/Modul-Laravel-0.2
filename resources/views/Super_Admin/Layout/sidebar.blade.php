@@ -46,14 +46,23 @@
           </a>
         </li>
 
-        {{-- <li class="nav-item">
-            <a class="nav-link" href="/super/permission" id="permission">
+        <li class="nav-item">
+            <a class="nav-link" href="/super/api-header" id="api-header">
               <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                   <i class="ni ni-key-25" style="color: #000"></i>
               </div>
-              <span class="nav-link-text ms-1">Permission</span>
+              <span class="nav-link-text ms-1">API Header</span>
             </a>
-        </li> --}}
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" href="/super/base-url" id="base-url">
+              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
+                  <i class="ni ni-world-2" style="color: #000"></i>
+              </div>
+              <span class="nav-link-text ms-1">Base URL</span>
+            </a>
+          </li>
 
       </ul>
     </div>
