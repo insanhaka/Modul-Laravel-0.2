@@ -80,7 +80,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleForm21">Role</label>
+                            <label for="exampleFormControlInput1" class="form-label">Role</label>
                             <select class="form-select form-control" aria-label="Default select example" name="roles_id">
                                 <option selected disabled>-- Pilih Role --</option>
                                 @foreach ($role as $roles)
@@ -99,11 +99,12 @@
                     </div>
                 </div>
 
-                <hr>
+                <br>
+                <br>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-info" style="float: right"> Simpan </button>
+                        <button type="submit" class="btn btn-primary" style="float: right"> Simpan </button>
                     </div>
                 </div>
 

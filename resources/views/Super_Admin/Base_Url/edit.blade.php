@@ -9,7 +9,7 @@
     .table thead th {
         padding: 0;
         padding-bottom: 5px;
-    } 
+    }
 </style>
 @endsection
 
@@ -39,7 +39,7 @@
                         <div class="mb-3">
                             <p>Name</p>
                             <input type="text" class="form-control" id="name"
-                            name="name" placeholder="Name" value="{!! $data->name !!}" readonly>
+                            name="nama" placeholder="Name" value="{!! $data->nama !!}" readonly>
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -53,7 +53,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-info" style="float: right"> Simpan </button>
+                        <button type="submit" class="btn btn-primary" style="float: right"> Simpan </button>
                     </div>
                 </div>
 

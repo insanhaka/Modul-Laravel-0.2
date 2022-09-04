@@ -1,69 +1,65 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-    <div class="sidenav-header">
-      <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-      <a class="navbar-brand m-0" href="/admin/dashboard">
-        <img src="{{asset('assets/img/icon/speedometer.png')}}" class="navbar-brand-img h-100" alt="logo" style="margin-right: 10px;">
-        <span class="ms-1 font-weight-bold" style="font-size: 16px;">Super Dashboard</span>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo mb-3">
+    <a href="/admin/dashboard" class="app-brand-link">
+      <span class="app-brand-logo demo">
+        <img src="{{asset('assets/img/icon/speedometer.png')}}" class="img-fluid" alt="logo" style="margin-right: 10px; width: 30px">
+      </span>
+      <span class="ms-1" style="font-size: 21px; font-weight: bold; color : #303952">Super Dashboard</span>
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
+    </a>
+  </div>
+
+  <div class="menu-inner-shadow"></div>
+
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item mb-2" id="dashboard">
+      <a href="/super/dashboard" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle"></i>
+        <div data-i18n="Analytics">Dashboard</div>
       </a>
-    </div>
-    <hr class="horizontal dark mt-0">
-    <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
-      <ul class="navbar-nav">
+    </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/super/dashboard" id="dashboard">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-chart-bar-32" style="color: #000"></i>
-            </div>
-            <span class="nav-link-text ms-1">Dashboard</span>
-          </a>
-        </li>
+    <li class="menu-item mb-2" id="menu">
+      <a href="/super/menu" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-list-ul"></i>
+        <div data-i18n="Analytics">Menu</div>
+      </a>
+    </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/super/menu" id="menu">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-bullet-list-67" style="color: #000"></i>
-            </div>
-            <span class="nav-link-text ms-1">Menu</span>
-          </a>
-      </li>
+    <li class="menu-item mb-2" id="role">
+      <a href="/super/role" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-key"></i>
+        <div data-i18n="Analytics">Role & Permission</div>
+      </a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/super/role" id="role">
-              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-badge" style="color: #000"></i>
-              </div>
-              <span class="nav-link-text ms-1">Role & Permission</span>
-            </a>
-        </li>
+    <li class="menu-item mb-2" id="user">
+      <a href="/super/user" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-user-detail"></i>
+        <div data-i18n="Analytics">All User</div>
+      </a>
+    </li>
 
-        <li class="nav-item">
-          <a class="nav-link" href="/super/user" id="user">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <i class="ni ni-single-02" style="color: #000"></i>
-            </div>
-            <span class="nav-link-text ms-1">User</span>
-          </a>
-        </li>
+    <li class="menu-item mb-2" id="api-header">
+      <a href="/super/api-header" class="menu-link">
+        <i class="menu-icon tf-icons bx bxs-hot"></i>
+        <div data-i18n="Analytics">API Header</div>
+      </a>
+    </li>
 
-        <li class="nav-item">
-            <a class="nav-link" href="/super/api-header" id="api-header">
-              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-key-25" style="color: #000"></i>
-              </div>
-              <span class="nav-link-text ms-1">API Header</span>
-            </a>
-          </li>
+    <li class="menu-item mb-2" id="base-url">
+      <a href="/super/base-url" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-world"></i>
+        <div data-i18n="Analytics">Base URL</div>
+      </a>
+    </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="/super/base-url" id="base-url">
-              <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                  <i class="ni ni-world-2" style="color: #000"></i>
-              </div>
-              <span class="nav-link-text ms-1">Base URL</span>
-            </a>
-          </li>
-
-      </ul>
-    </div>
+  </ul>
 </aside>
+<!-- / Menu -->
+
+

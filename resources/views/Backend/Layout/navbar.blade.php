@@ -1,6 +1,18 @@
 <!-- Navbar -->
-<nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true" style="padding-top: 15px;">
-    <div class="container-fluid py-1 px-3">
+<nav
+  class="layout-navbar container-fluid navbar navbar-expand-xl navbar-detached align-items-center bg-navbar-theme"
+  id="layout-navbar"
+  
+>
+  <div class="layout-menu-toggle navbar-nav align-items-xl-center me-3 me-xl-0 d-xl-none">
+    <a class="nav-item nav-link px-0 me-xl-4" href="javascript:void(0)">
+      <i class="bx bx-menu bx-sm"></i>
+    </a>
+  </div>
+
+  <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
+    
+    <div class="navbar-nav align-items-center">
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
             <li class="nav-item d-xl-none ps-3 d-flex align-items-center" style="margin-right: 30px">
@@ -14,71 +26,76 @@
             </li>
             <li>
               <h6 class="font-weight-bolder mb-0">{!! Label::label1() !!}</h6>
-              <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-                <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-                <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{!! Label::label2() !!}</li>
+              <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5" style="font-size: 12px">
+                <li class="breadcrumb-item text-sm">Pages</li>
+                <li class="breadcrumb-item text-sm text-primary active" aria-current="page">{!! Label::label2() !!}</li>
               </ol>
             </li>
         </ol>
       </nav>
-      <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-        <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-        </div>
-        <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item dropdown pe-2 d-flex align-items-center">
-                <a href="javascript:;" class="btn" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="margin-top: 10px;">
-                  <span class="d-sm-inline d-none">Hi, {{ Auth::user()->name }}</span>
-                  <span class="d-sm-inline d-none" id="breadmenu">=</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end px-2 py-3 me-sm-n4" id="dropbreadmenu" aria-labelledby="dropdownMenuButton">
-                    <li class="mb-2">
-                        <a class="dropdown-item border-radius-md" href="/profil/user">
-                          <div class="d-flex py-1">
-                            <div class="my-auto">
-                              <img src="{{ asset('assets/img/icon/user.png') }}" width="20">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                              <h6 class="text-sm font-weight-normal mb-1" style="margin-left: 20px;">
-                                <span class="font-weight-bold">PROFIL</span>
-                              </h6>
-                            </div>
-                          </div>
-                        </a>
-                    </li>
-                    @if (Auth::user()->role_id == 1)
-                    <li class="mb-2">
-                      <a class="dropdown-item border-radius-md" href="/super/setting">
-                        <div class="d-flex py-1">
-                            <div class="my-auto">
-                            <img src="{{ asset('assets/img/icon/settings.png') }}" width="20">
-                            </div>
-                            <div class="d-flex flex-column justify-content-center">
-                            <h6 class="text-sm font-weight-normal mb-1" style="margin-left: 20px;">
-                                <span class="font-weight-bold">PENGATURAN</span>
-                            </h6>
-                            </div>
-                        </div>
-                      </a>
-                    </li>
-                    @endif
-                    <li class="mb-2">
-                        <a class="dropdown-item border-radius-md" href="/logout/admin">
-                        <div class="d-flex py-1">
-                            <div class="my-auto">
-                            <img src="{{ asset('assets/img/icon/back.png') }}" width="20">
-                            </div>
-                            <div class="d-flex flex-column justify-content-right">
-                                <h6 class="text-sm font-weight-normal mb-1" style="margin-left: 20px;">
-                                    <span class="font-weight-bold">LOG OUT</span>
-                                </h6>
-                            </div>
-                        </div>
-                        </a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-      </div>
     </div>
-  </nav>
+
+    <ul class="navbar-nav flex-row align-items-center ms-auto">
+
+      <!-- User -->
+      <li class="nav-item navbar-dropdown dropdown-user dropdown">
+        <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
+          <span class="d-sm-inline d-none">
+            <button type="button" class="btn btn-outline-success btn-sm">Hi, {{ Auth::user()->name }}</button>
+          </span>
+          <span class="d-block d-sm-none" id="breadmenu">
+            <div class="avatar avatar-online">
+              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+            </div>
+          </span>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end">
+          <li>
+            <a class="dropdown-item" href="#">
+              <div class="d-flex">
+                <div class="flex-shrink-0 me-3">
+                  <div class="avatar avatar-online">
+                    <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+                  </div>
+                </div>
+                <div class="flex-grow-1">
+                  <span class="fw-semibold d-block">{{ Auth::user()->name }}</span>
+                  <small class="text-muted">Admin</small>
+                </div>
+              </div>
+            </a>
+          </li>
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/profile/admin/{{ Auth::user()->id }}">
+              <i class="bx bx-user me-2"></i>
+              <span class="align-middle">My Profile</span>
+            </a>
+          </li>
+          @if (Auth::user()->role_id == 1)
+          <li>
+            <a class="dropdown-item" href="/super/setting">
+              <i class="bx bx-cog me-2"></i>
+              <span class="align-middle">Settings</span>
+            </a>
+          </li>
+          @endif
+          <li>
+            <div class="dropdown-divider"></div>
+          </li>
+          <li>
+            <a class="dropdown-item" href="/logout/admin">
+              <i class="bx bx-power-off me-2"></i>
+              <span class="align-middle">Log Out</span>
+            </a>
+          </li>
+        </ul>
+      </li>
+      <!--/ User -->
+    </ul>
+  </div>
+</nav>
+
   <!-- End Navbar -->

@@ -1,35 +1,66 @@
-<aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 " id="sidenav-main">
-  <div class="sidenav-header">
-    <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-    <a class="navbar-brand m-0" href="/admin/dashboard">
-      <img src="{{asset('assets/img/icon/speedometer.png')}}" class="navbar-brand-img h-100" alt="logo" style="margin-right: 10px;">
-      <span class="ms-1 font-weight-bold" style="font-size: 16px;">Dashboard</span>
+<aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
+  <div class="app-brand demo mb-3">
+    <a href="/admin/dashboard" class="app-brand-link">
+      <span class="app-brand-logo demo">
+        <img src="{{asset('assets/img/icon/speedometer.png')}}" class="img-fluid" alt="logo" style="margin-right: 10px; width: 30px">
+      </span>
+      <span class="ms-1" style="font-size: 21px; font-weight: bold; color : #303952">Dashboard</span>
+    </a>
+
+    <a href="javascript:void(0);" class="layout-menu-toggle menu-link text-large ms-auto d-block d-xl-none">
+      <i class="bx bx-chevron-left bx-sm align-middle"></i>
     </a>
   </div>
-  <hr class="horizontal dark mt-0">
-  <div class="collapse navbar-collapse w-auto " id="sidenav-collapse-main">
-    <ul class="navbar-nav">
 
-      <li class="nav-item">
-        <a class="nav-link " href="/admin/dashboard" id="dashboard">
-          <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-              <i class="ni ni-chart-bar-32" style="color: #000"></i>
-          </div>
-          <span class="nav-link-text ms-1">Dashboard</span>
-        </a>
-      </li>
+  <div class="menu-inner-shadow"></div>
 
-      {!! BackMenu::getRole(Auth::user()->role_id) !!}
+  <ul class="menu-inner py-1">
+    <!-- Dashboard -->
+    <li class="menu-item mb-2" id="dashboard">
+      <a href="/admin/dashboard" class="menu-link">
+        <i class="menu-icon tf-icons bx bx-home-circle text-primary"></i>
+        <div data-i18n="Analytics">Dashboard</div>
+      </a>
+    </li>
 
-      {{-- <li class="nav-item">
-          <a class="nav-link" href="/super/role" id="role">
-            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                <img src="{{ asset('assets/img/icon/no-image.png') }}" class="img-fluid" alt="Responsive image" width="40">
-            </div>
-            <span class="nav-link-text ms-1">Role</span>
+    {!! BackMenu::getRole(Auth::user()->role_id) !!}
+
+    <!-- Dropdown -->
+    {{-- <li class="menu-item active open">
+      <a href="javascript:void(0);" class="menu-link menu-toggle">
+        <i class="menu-icon tf-icons bx bx-layout"></i>
+        <div data-i18n="Layouts">Layouts</div>
+      </a>
+
+      <ul class="menu-sub">
+        <li class="menu-item">
+          <a href="layouts-without-menu.html" class="menu-link">
+            <div data-i18n="Without menu">Without menu</div>
           </a>
-      </li> --}}
+        </li>
+        <li class="menu-item">
+          <a href="layouts-without-navbar.html" class="menu-link">
+            <div data-i18n="Without navbar">Without navbar</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="layouts-container.html" class="menu-link">
+            <div data-i18n="Container">Container</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="layouts-fluid.html" class="menu-link">
+            <div data-i18n="Fluid">Fluid</div>
+          </a>
+        </li>
+        <li class="menu-item">
+          <a href="layouts-blank.html" class="menu-link">
+            <div data-i18n="Blank">Blank</div>
+          </a>
+        </li>
+      </ul>
+    </li> --}}
 
-    </ul>
-  </div>
+  </ul>
 </aside>
+<!-- / Menu -->

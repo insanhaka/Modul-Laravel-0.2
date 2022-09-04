@@ -14,18 +14,18 @@
 
 @section('content')
     <div class="page-header min-vh-75">
-        <div class="container">
+        <div class="container pt-5">
             <div class="row">
 
                 <div class="col-md-6">
                     <center>
-                    <h3 class="mt-10">Gambar</h3>
+                    <img src="{{ asset('assets/img/image-header-new-back.png') }}" class="img-fluid" alt="Image">
                     </center>
                 </div>
-                <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
+                <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto pt-4">
                     <div class="card card-plain mt-5">
-                        <div class="card-header pb-0 text-left bg-transparent">
-                            <h3 class="font-weight-bolder text-info text-gradient">Welcome Admin</h3>
+                        <div class="card-header pb-3 text-center bg-transparent">
+                            <h3 class="font-weight-bolder">Welcome Admin</h3>
                         </div>
                         <div class="card-body">
                             <form role="form" method="POST" action="/post-dapur" >
@@ -40,7 +40,7 @@
                                 <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign in</button>
+                                <button type="submit" class="btn btn-primary w-100 mt-4 mb-0">Sign in</button>
                             </div>
                             </form>
                         </div>

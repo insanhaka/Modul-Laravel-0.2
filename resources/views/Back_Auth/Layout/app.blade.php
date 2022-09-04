@@ -4,29 +4,31 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('assets/img/logos/Logo1.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
   <title>
-    Login - Autolife
+    Login - Laravel Model
   </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-  <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
+  
+  <!-- Icons. Uncomment required icon fonts -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
   <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.5') }}" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
 
-  <style>
-      .form-control:focus {
-        border-color: #0fbcf9;
-        box-shadow: 0 0 0 0.1rem #fff;
-        }
-  </style>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
+
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
+
+  <!-- Page CSS -->
+
+  <!-- Helpers -->
+  <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
+
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="{{ asset('assets/js/config.js') }}"></script>
 
   @yield('css')
 </head>
@@ -35,31 +37,26 @@
   <main class="main-content mt-0">
     <section>
         @yield('content')
-        @include('Front_Auth.Layout.footer')
+        @include('Back_Auth.Layout.footer')
     </section>
 </main>
 
-<!--   Core JS Files   -->
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script>
-<script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+<!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+    <!-- endbuild -->
 
-<script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
+    <!-- Main JS -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-<script>
-  var win = navigator.platform.indexOf('Win') > -1;
-  if (win && document.querySelector('#sidenav-scrollbar')) {
-    var options = {
-      damping: '0.5'
-    }
-    Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-  }
-</script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Page JS -->
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+
 @yield('js')
 </body>
 

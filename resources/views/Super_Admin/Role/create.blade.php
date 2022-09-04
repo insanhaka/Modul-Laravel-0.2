@@ -42,7 +42,8 @@
                     </div>
                 </div>
 
-                <hr>
+                <br>
+
                 <div class="row">
                     <div class="col-md-12">
                         <table class="table table-striped">
@@ -90,11 +91,12 @@
                     </div>
                 </div>
 
-                <hr>
+                <br>
+                <br>
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-info" style="float: right"> Simpan </button>
+                        <button type="submit" class="btn btn-primary" style="float: right"> Simpan </button>
                     </div>
                 </div>
 

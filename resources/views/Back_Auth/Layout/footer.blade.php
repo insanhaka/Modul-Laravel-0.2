@@ -6,7 +6,7 @@
           <small class="mb-0 text-secondary">
             Copyright © <script>
               document.write(new Date().getFullYear())
-            </script> Autolife - Smart Technology Development
+            </script> Modul - Laravel Modul Basic Apps
           </small>
           <br>
           <small class="mb-0 text-secondary">

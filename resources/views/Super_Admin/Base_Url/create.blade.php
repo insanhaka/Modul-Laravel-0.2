@@ -8,7 +8,7 @@
     .table thead th {
         padding: 0;
         padding-bottom: 5px;
-    } 
+    }
 </style>
 @endsection
 
@@ -37,7 +37,7 @@
                         <div class="mb-3">
                             <p>Nama</p>
                             <input type="text" class="form-control" id="name"
-                            name="name" placeholder="Keterangan url" value="{{old('name')}}">
+                            name="nama" placeholder="Keterangan url" value="{{old('name')}}">
                         </div>
                     </div>
                     <div class="col-md-6">
@@ -51,7 +51,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-info" style="float: right"> Simpan </button>
+                        <button type="submit" class="btn btn-primary" style="float: right"> Simpan </button>
                     </div>
                 </div>
 

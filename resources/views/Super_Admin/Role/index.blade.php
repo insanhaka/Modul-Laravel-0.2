@@ -14,7 +14,7 @@
                     <h4>Data Role & Permission</h4>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-info mb-0" href="{{route('role.create')}}" role="button" style="float: right">Tambah Data</a>
+                    <a class="btn btn-primary mb-0" href="{{route('role.create')}}" role="button" style="float: right">Tambah Data</a>
                 </div>
             </div>
         </div>

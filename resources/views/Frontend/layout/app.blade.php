@@ -4,100 +4,38 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/img/apple-icon.png') }}">
-  <link rel="icon" type="image/png" href="{{ asset('assets/img/logos/Logo1.png') }}">
+  <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
   <title>
-    Home - Autolife
+    Welcome - Modul Laravel
   </title>
-  <!--     Fonts and icons     -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
-  <!-- Nucleo Icons -->
-  <link href="{{ asset('assets/css/nucleo-icons.css') }}" rel="stylesheet" />
-  <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- Font Awesome Icons -->
-  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
-  <link href="{{ asset('assets/css/nucleo-svg.css') }}" rel="stylesheet" />
-  <!-- CSS Files -->
-  <link id="pagestyle" href="{{ asset('assets/css/soft-ui-dashboard.css?v=1.0.5') }}" rel="stylesheet" />
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet"
+  />
 
-    <style type="text/css">
-      body.offcanvas-active{
-        overflow:hidden;
-      }
+  <!-- Icons. Uncomment required icon fonts -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/fonts/boxicons.css') }}" />
 
-      .offcanvas-header{ display:none; }
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/core.css') }}" class="template-customizer-core-css" />
+  <link rel="stylesheet" href="{{ asset('assets/vendor/css/theme-default.css') }}" class="template-customizer-theme-css" />
+  <link rel="stylesheet" href="{{ asset('assets/css/demo.css') }}" />
 
-      #nav-besar {
-        display: none;
-      }
+  <!-- Vendors CSS -->
+  <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
 
-      #navbar_main {
-        display: none;
-      }
+  <!-- Page CSS -->
 
-      .screen-overlay {
-        width:0%;
-        height: 100%;
-        z-index: 30;
-        position: fixed;
-        top: 0;
-        left: 0;
-        opacity:0;
-        visibility:hidden;
-        background-color: rgba(34, 34, 34, 0.6);
-        transition:opacity .2s linear, visibility .1s, width 1s ease-in;
-        }
-      .screen-overlay.show {
-          transition:opacity .5s ease, width 0s;
-          opacity:1;
-          width:100%;
-          visibility:visible;
-      }
+  <!-- Helpers -->
+  <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
 
-      @media all and (max-width:992px) {
-
-        .offcanvas-header{ display:block; }
-
-        #nav-besar {
-          display: flex;
-        }
-
-        #navbarBlur {
-          display: none;
-        }
-
-        #navbar_main {
-          display: block;
-        }
-
-        .mobile-offcanvas{
-          visibility: hidden;
-          transform:translateX(-100%);
-            border-radius:0;
-          display:block;
-            position: fixed;
-            top: 0; left:0;
-            height: 100%;
-            z-index: 1200;
-            width:80%;
-            overflow-y: scroll;
-            overflow-x: hidden;
-            transition: visibility .2s ease-in-out, transform .2s ease-in-out;
-        }
-
-        .mobile-offcanvas.show{
-          visibility: visible;
-            transform: translateX(0);
-        }
-      }
-    </style>
-
-<style>
-    .form-control:focus {
-      border-color: #0fbcf9;
-      box-shadow: 0 0 0 0.1rem #fff;
-      }
-</style>
+  <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
+  <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
+  <script src="{{ asset('assets/js/config.js') }}"></script>
 
 
   @yield('css')
@@ -112,66 +50,21 @@
     </section>
 </main>
 
-<!--   Core JS Files   -->
-<script src="{{ asset('assets/js/core/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/core/bootstrap.min.js') }}"></script>
-{{-- <script src="{{ asset('assets/js/plugins/perfect-scrollbar.min.js') }}"></script> --}}
-<script src="{{ asset('assets/js/plugins/smooth-scrollbar.min.js') }}"></script>
+<!-- Core JS -->
+    <!-- build:js assets/vendor/js/core.js -->
+    <script src="{{ asset('assets/vendor/libs/jquery/jquery.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/popper/popper.js') }}"></script>
+    <script src="{{ asset('assets/vendor/js/bootstrap.js') }}"></script>
+    <script src="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.js') }}"></script>
 
-<!-- jQuery -->
-<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-crossorigin="anonymous"></script>
+    <script src="{{ asset('assets/vendor/js/menu.js') }}"></script>
+    <!-- endbuild -->
 
-<script>
-  var win = navigator.platform.indexOf('Win') > -1;
-  if (win && document.querySelector('#sidenav-scrollbar')) {
-    var options = {
-      damping: '0.5'
-    }
-    Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
-  }
-</script>
-<!-- Github buttons -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
-<!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
-{{-- <script src="{{ asset('assets/js/soft-ui-dashboard.min.js?v=1.0.5') }}"></script> --}}
+    <!-- Main JS -->
+    <script src="{{ asset('assets/js/main.js') }}"></script>
 
-<script type="text/javascript">
-  /// some script
-
-  // jquery ready start
-  $(document).ready(function() {
-    // jQuery code
-
-
-    $("[data-trigger]").on("click", function(e){
-          e.preventDefault();
-          e.stopPropagation();
-          var offcanvas_id =  $(this).attr('data-trigger');
-          $(offcanvas_id).toggleClass("show");
-          $('body').toggleClass("offcanvas-active");
-          $(".screen-overlay").toggleClass("show");
-      });
-
-       // Close menu when pressing ESC
-      $(document).on('keydown', function(event) {
-          if(event.keyCode === 27) {
-             $(".mobile-offcanvas").removeClass("show");
-             $("body").removeClass("overlay-active");
-          }
-      });
-
-      $(".btn-close, .screen-overlay").click(function(e){
-        $(".screen-overlay").removeClass("show");
-          $(".mobile-offcanvas").removeClass("show");
-          $("body").removeClass("offcanvas-active");
-
-
-      });
-
-
-  }); // jquery end
-</script>
+    <!-- Page JS -->
+    <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
 
 @yield('js')
 </body>

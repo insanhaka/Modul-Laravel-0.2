@@ -14,7 +14,7 @@
                     <h4>Data Base URL</h4>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-info mb-0" href="{{route('base-url.create')}}" role="button" style="float: right">Tambah Data</a>
+                    <a class="btn btn-primary mb-0" href="{{route('base-url.create')}}" role="button" style="float: right">Tambah Data</a>
                 </div>
             </div>
         </div>
@@ -91,7 +91,7 @@
             ],
             columns: [
                 // {data: 'checkbox',name: 'checkbox', searchable: false, orderable: false},
-                {data: 'name',name: 'name'},
+                {data: 'nama',name: 'nama'},
                 {data: 'url',name: 'url'},
                 {data: 'action',name: 'action'},
             ]

@@ -35,7 +35,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="mb-3">
-                            <div class="alert alert-danger" style="color: #fff" role="alert">
+                            <div class="alert alert-danger" role="alert">
                                 Tulisan Key tidak boleh berisi spasi
                             </div>
                             <p>Key</p>
@@ -47,7 +47,7 @@
 
                 <div class="row">
                     <div class="col-md-12">
-                        <button type="submit" class="btn btn-info" style="float: right"> Simpan </button>
+                        <button type="submit" class="btn btn-primary" style="float: right"> Simpan </button>
                     </div>
                 </div>
 

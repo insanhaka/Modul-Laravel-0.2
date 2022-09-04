@@ -1,14 +1,16 @@
-<footer class="footer pt-3  ">
-    <div class="container-fluid">
-      <div class="row align-items-center">
-        <div class="col-lg-12 mb-lg-0 mb-4">
-          <div class="copyright text-center text-sm text-muted text-lg-start">
-            © <script>
-              document.write(new Date().getFullYear())
-            </script>
-            - made with <i class="fa fa-heart"></i> by @insanhaka
-          </div>
-        </div>
-      </div>
+
+<footer class="content-footer footer bg-footer-theme">
+  <div class="container-fluid d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
+    <div class="mb-2 mb-md-0">
+      
     </div>
+    <div>
+      ©
+      <script>
+        document.write(new Date().getFullYear());
+      </script>
+      , made with ❤️
+      by @insanhaka
+    </div>
+  </div>
 </footer>
