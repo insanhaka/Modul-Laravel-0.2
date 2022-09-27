@@ -30,11 +30,11 @@
                         <div class="card-body">
                             <form role="form" method="POST" action="/post-dapur" >
                             @csrf
-                            <label>Email / Username</label>
+                            <label class="form-label">Email / Username</label>
                             <div class="mb-3">
                                 <input type="text" class="form-control" placeholder="Email / Username" aria-label="Email" aria-describedby="email-addon" name="username" value="{{ old('username') }}">
                             </div>
-                            <label>Password</label>
+                            <label class="form-label">Password</label>
                             <div class="mb-3">
                                 <input type="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password" id="password-field" value="{{ old('password') }}">
                                 <span toggle="#password-field" class="fa fa-fw fa-eye-slash field-icon toggle-password"></span>

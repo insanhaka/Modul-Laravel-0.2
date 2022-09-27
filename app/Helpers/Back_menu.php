@@ -35,12 +35,10 @@ class Back_menu
             $menu_icon = Storage::url('icon/'.$data_menu->icon);
             $menuID = Str::after($data_menu->uri, '/');
 
-            $html_out = '<li class="nav-item">
-                            <a class="nav-link" href="'.$menu_uri.'" id="'.$menuID.'">
-                            <div class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
-                                <img src="'.$menu_icon.'" class="img-fluid" alt="Responsive image" width="40">
-                            </div>
-                            <span class="nav-link-text ms-1">'.$menu_name.'</span>
+            $html_out = '<li class="menu-item mb-2" id="'.$menuID.'">
+                            <a href="'.$menu_uri.'" class="menu-link">
+                                <img src="'.$menu_icon.'" class="img-fluid" alt="Responsive image" width="15" style="margin-right: 18px">
+                                <div data-i18n="Analytics">'.$menu_name.'</div>
                             </a>
                         </li>' ;
 

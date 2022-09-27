@@ -41,11 +41,11 @@
       <li class="nav-item navbar-dropdown dropdown-user dropdown">
         <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);" data-bs-toggle="dropdown">
           <span class="d-sm-inline d-none">
-            <button type="button" class="btn btn-outline-success btn-sm">Hi, {{ Auth::user()->name }}</button>
+            <h6 style="margin-top: 15%"><i class='bx bx-user-circle' style="font-size: 21px"></i> {{ Auth::user()->name }}</h6>
           </span>
           <span class="d-block d-sm-none" id="breadmenu">
             <div class="avatar avatar-online">
-              <img src="../assets/img/avatars/1.png" alt class="w-px-40 h-auto rounded-circle" />
+              <img src="{{ asset('assets/img/noimg-user.png') }}" alt class="w-px-40 h-auto rounded-circle" />
             </div>
           </span>
         </a>
