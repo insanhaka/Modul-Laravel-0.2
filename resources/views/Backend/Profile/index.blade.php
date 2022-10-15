@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <title>
-    Profile - Kitasiapin
+        Modul - Your Profile
     </title>
     
     <meta name="description" content="" />

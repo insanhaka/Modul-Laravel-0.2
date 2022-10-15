@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" type="image/png" href="{{ asset('assets/img/favicon.png') }}">
     <title>
-    Profile - Kitasiapin
+        Module - Profile Edit
     </title>
     
     <meta name="description" content="" />
@@ -119,37 +119,47 @@
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="name">Nama Lengkap</label>
-                            <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{!! $data->name !!}">
+                            <label class="form-label">Nama Lengkap</label>
+                            <div class="mb-3">
+                                <input type="text" class="form-control" id="name" name="name" placeholder="Nama Lengkap" value="{!! $data->name !!}">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="username">Username</label>
+                            <label class="form-label">Username</label>
+                            <div class="mb-3">
                             <input type="text" class="form-control" id="username" name="username" placeholder="Username" value="{!! $data->username !!}">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="email">Alamat Email Aktif</label>
+                            <label class="form-label">Alamat Email Aktif</label>
+                            <div class="mb-3">
                             <input type="email" class="form-control" id="email" name="email" placeholder="name@example.com" value="{!! $data->email !!}">
+                            </div>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="password">Password</label>
+                            <label class="form-label">Password</label>
+                            <div class="mb-3">
                             <input type="password" class="form-control" id="password" value="{{ old('password') }}" name="password">
+                            </div>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-sm-6">
                         <div class="form-group">
-                            <label for="exampleInput">Upload Photo profile</label>
+                            <label class="form-label">Upload Photo profile</label>
+                            <div class="mb-3">
                             <div class="file-loading">
                                 <input id="input-b6" class="form-control" name="photo" type="file">
+                            </div>
                             </div>
                         </div>
                     </div>

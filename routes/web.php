@@ -10,6 +10,7 @@ use App\Http\Controllers\Front_DashboardController;
 // Back-End Route
 use App\Http\Controllers\Back_AuthController;
 use App\Http\Controllers\Back_DashboardController;
+use App\Http\Controllers\Back_ProfileController;
 
 // Super Admin Route
 use App\Http\Controllers\Super_DashboardController;
@@ -52,6 +53,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/dashboard', [Back_DashboardController::class, 'index'])->name('control');
 
+});
+
+// Profile route
+Route::group(['middleware' => 'auth'], function() {
+    Route::get('/profile/admin/{id}', [Back_ProfileController::class, 'index'])->name('profile.index');
+    Route::get('/profile/admin/{id}/edit', [Back_ProfileController::class, 'edit'])->name('profile.edit');
+    Route::post('/profile/admin/{id}/update', [Back_ProfileController::class, 'update']);
 });
 
 
