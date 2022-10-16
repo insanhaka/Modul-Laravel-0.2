@@ -81,10 +81,16 @@
                                             
                                         </td>
                                         <td>
-                                            <p>Activation</p>
+                                            @if ($c->is_active == 0)
+                                            <a class="btn btn-secondary btn-sm" style="margin-right: 10px;" href="{{route('menu.activation', ['id'=>$c->id, 'data'=>'1'])}}">OFF</a>
+                                            @else
+                                            <a class="btn btn-success btn-sm" style="margin-right: 20px;" href="{{route('menu.activation', ['id'=>$c->id, 'data'=>'0'])}}">ON</a>
+                                            @endif
                                         </td>
                                         <td>
-                                            <p>Action</p>
+                                            <a style="margin-right: 20px;" href="{{route('menu.edit', ['menu' => $c->id])}}"><i class="fa fa-edit text-warning" style="font-size: 21px;"></i></a>
+                                            
+                                            <a style="margin-right: 10px;" href="{{route('menu.delete', ['id' => $c->id])}}"><i class="fa fa-trash text-danger" style="font-size: 21px;"></i></a>
                                         </td>
                                     </tr>
                                     @endif

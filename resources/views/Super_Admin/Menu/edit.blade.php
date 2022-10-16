@@ -139,7 +139,7 @@
     });
 </script>
 
-<script>
+{{-- <script>
     $(document).ready(function(){
       $("#name").change(function(){
         var name = document.getElementById('name').value;
@@ -147,7 +147,7 @@
         document.getElementById('uri').value = uri;
       });
     });
-</script>
+</script> --}}
 
 @endsection
 

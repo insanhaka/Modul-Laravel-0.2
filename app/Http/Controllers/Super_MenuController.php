@@ -43,7 +43,7 @@ class Super_MenuController extends Controller
     {
         $messages = [
             'name.required' => 'Nama menu diisi ya..',
-            'menu_type.required' => 'Pilih dulu tipe menunya ya..',
+            // 'menu_type.required' => 'Pilih dulu tipe menunya ya..',
             'icon.required' => 'Icon ditambahkan biar keren..',
             'icon.mimes' => 'Format file harus JPEG/PNG/JPG..',
             'is_active.required' => 'Aktifasi dipilih ya..',
@@ -51,7 +51,7 @@ class Super_MenuController extends Controller
 
         $validator = Validator::make( $request->all(), [
             'name' => 'required',
-            'menu_type' => 'required',
+            // 'menu_type' => 'required',
             'icon' => 'required|mimes:jpeg,png,jpg',
             'is_active' => 'required',
         ], $messages );
