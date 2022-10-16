@@ -26,7 +26,8 @@
     {!! BackMenu::getRole(Auth::user()->role_id) !!}
 
     <!-- Dropdown -->
-    {{-- <li class="menu-item active open">
+    {{-- <li class="menu-item active open"> --}}
+    <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-layout"></i>
         <div data-i18n="Layouts">Layouts</div>
@@ -59,7 +60,7 @@
           </a>
         </li>
       </ul>
-    </li> --}}
+    </li>
 
   </ul>
 </aside>

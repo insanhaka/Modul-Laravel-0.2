@@ -5,7 +5,7 @@
   class="light-style layout-menu-fixed"
   dir="ltr"
   data-theme="theme-default"
-  data-assets-path="../assets/"
+  {{-- data-assets-path="../assets/" --}}
   data-template="vertical-menu-template-free"
 >
   <head>
@@ -30,8 +30,6 @@
 
     <!-- Vendors CSS -->
     <link rel="stylesheet" href="{{ asset('assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css') }}" />
-
-    <!-- Page CSS -->
 
     <!-- Helpers -->
     <script src="{{ asset('assets/vendor/js/helpers.js') }}"></script>
@@ -83,6 +81,7 @@
     <link href="{{ asset('assets/vendor/Krajee-file-input/themes/explorer-fa/theme.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
+
     
     @yield('css')
 
@@ -162,6 +161,8 @@
 <script src="{{ asset('assets/vendor/Krajee-file-input/themes/gly/theme.js') }}"></script>
 
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
+
+
 @yield('js')
   </body>
 </html>

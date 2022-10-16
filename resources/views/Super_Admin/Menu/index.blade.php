@@ -29,6 +29,8 @@
                   <tr>
                     <th scope="col">Nama</th>
                     <th scope="col">Url</th>
+                    <th scope="col">type</th>
+                    <th scope="col">child Menu</th>
                     <th scope="col">Icon</th>
                     <th scope="col">Activation</th>
                     <th scope="col">Action</th>
@@ -42,6 +44,64 @@
             </table>
         </div>
     </div>
+
+    <!-- Modal -->
+    @foreach ($parent as $p)
+    <div class="modal fade" id="parentID-{!!$p->id!!}" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Child Menu</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-striped responsive">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Icon</th>
+                                    <th scope="col">Activation</th>
+                                    <th scope="col">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($child as $c)
+                                    @if ($c->parent_id == $p->id)
+                                    <tr>
+                                        <td>
+                                            <p>{!!$c->name!!}</p>
+                                        </td>
+                                        <td>
+                                            @if ($c->icon == null)
+                                            <img src="{{asset('assets/img/icon/no-image.png')}}" class="img-fluid" alt="Responsive image" width="30">
+                                            @else
+                                            <img src="{{Storage::url('icon/'.$c->icon)}}" class="img-fluid" alt="Responsive image" width="30">
+                                            @endif
+                                            
+                                        </td>
+                                        <td>
+                                            <p>Activation</p>
+                                        </td>
+                                        <td>
+                                            <p>Action</p>
+                                        </td>
+                                    </tr>
+                                    @endif
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+    
+
 </div>
 
 @endsection
@@ -94,6 +154,8 @@
                 // {data: 'checkbox',name: 'checkbox', searchable: false, orderable: false},
                 {data: 'name',name: 'name'},
                 {data: 'url',name: 'url'},
+                {data: 'type',name: 'type'},
+                {data: 'child',name: 'child'},
                 {data: 'icon',name: 'icon'},
                 {data: 'activation',name: 'activation'},
                 {data: 'action',name: 'action'},

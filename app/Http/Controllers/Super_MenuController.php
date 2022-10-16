@@ -17,7 +17,9 @@ class Super_MenuController extends Controller
      */
     public function index()
     {
-        return view('Super_Admin.Menu.index');
+        $get_parent = Menu::where('type', 'parent')->get();
+        $get_child = Menu::where('type', 'child')->get();
+        return view('Super_Admin.Menu.index', ['parent'=> $get_parent, 'child'=> $get_child]);
     }
 
     /**
@@ -27,7 +29,8 @@ class Super_MenuController extends Controller
      */
     public function create()
     {
-        return view('Super_Admin.Menu.create');
+        $get_parent = Menu::where('type', 'parent')->get();
+        return view('Super_Admin.Menu.create', ['parent'=> $get_parent]);
     }
 
     /**
@@ -40,6 +43,7 @@ class Super_MenuController extends Controller
     {
         $messages = [
             'name.required' => 'Nama menu diisi ya..',
+            'menu_type.required' => 'Pilih dulu tipe menunya ya..',
             'icon.required' => 'Icon ditambahkan biar keren..',
             'icon.mimes' => 'Format file harus JPEG/PNG/JPG..',
             'is_active.required' => 'Aktifasi dipilih ya..',
@@ -47,6 +51,7 @@ class Super_MenuController extends Controller
 
         $validator = Validator::make( $request->all(), [
             'name' => 'required',
+            'menu_type' => 'required',
             'icon' => 'required|mimes:jpeg,png,jpg',
             'is_active' => 'required',
         ], $messages );
@@ -58,6 +63,8 @@ class Super_MenuController extends Controller
             $buat = new Menu;
             $buat->name = $request->name;
             $buat->uri = $request->uri;
+            $buat->type = $request->menu_type;
+            $buat->parent_id = $request->parent_id;
             $buat->is_active = $request->is_active;
             // menyimpan data file yang diupload ke variabel $file
             $file = $request->file('icon');
@@ -84,15 +91,37 @@ class Super_MenuController extends Controller
      */
     public function serverside()
     {
-        $data = Menu::query();
-        return DataTables::eloquent($data)
+        $data = Menu::where('type', 'parent')->get();
+        return DataTables::of($data)
         
-        ->orderColumn('name', function ($query, $order) {
-            $query->orderBy('name', 'asc');
+        ->addColumn('name', function ($data) {
+            $name = '<td>'.$data->name.'</td>';
+            return $name;
         })
         ->addColumn('url', function ($data) {
             $url = '<td>'.$data->uri.'</td>';
             return $url;
+        })
+        ->addColumn('type', function ($data) {
+            $type = '<td>'.$data->type.'</td>';
+            return $type;
+        })
+        ->addColumn('child', function ($data) {
+            $get_child = Menu::where('parent_id', $data->id)->count();
+            if ($get_child == 0) {
+                $parent = '<td>
+                        <button type="button" class="btn btn-secondary btn-sm" data-bs-toggle="modal" data-bs-target="#parentID-'.$data->id.'" disabled>
+                            No Child
+                        </button>
+                    </td>';
+            }else {
+            $parent = '<td>
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#parentID-'.$data->id.'">
+                            View Child
+                        </button>
+                    </td>';
+            }
+            return $parent;
         })
         ->addColumn('icon', function ($data) {
             if ($data->icon == null) {
@@ -119,7 +148,7 @@ class Super_MenuController extends Controller
                         </td>';
             return $action;
         })
-        ->rawColumns(['name', 'url', 'icon', 'activation', 'action'])
+        ->rawColumns(['name', 'url', 'type', 'child', 'icon', 'activation', 'action'])
         ->make(true);
     }
 

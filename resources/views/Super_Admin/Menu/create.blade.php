@@ -15,6 +15,13 @@
         position: relative;
         z-index: 2;
     }
+
+    .hide {
+        display: none;
+    }
+    .show {
+        display: block;
+    }
 </style>
 @endsection
 
@@ -55,9 +62,36 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label class="form-label">Tipe Menu</label>
+                            <select class="form-select" data-allow-clear="true" id="tipe" onchange="getType()" name="menu_type">
+                                <option value="" selected disabled> Pilih Tipe Menu </option>
+                                <option value="parent">Parent Menu</option>
+                                <option value="child">Child Menu</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row hide" id="child-menu">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label class="form-label">Pilih Parent Menu</label>
+                            <select class="form-select" data-allow-clear="true" name="parent_id">
+                                <option value="" selected disabled> Pilih Parent Menu </option>
+                                @foreach ($parent as $item)
+                                <option value="{!!$item->id!!}">{!!$item->name!!}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleForm21">Icon</label>
+                            <label for="exampleForm21" class="form-label">Icon</label>
                             <div class="file-loading">
                                 <input id="input-b6" class="form-control" name="icon" type="file">
                             </div>
@@ -65,7 +99,7 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleForm21">Aktivasi</label>
+                            <label for="exampleForm21" class="form-label">Aktivasi</label>
                             <select class="form-select form-control" aria-label="Default select example" name="is_active">
                                 <option selected disabled>-- Pilih --</option>
                                 <option value="1">Aktiv</option>
@@ -97,6 +131,19 @@
     $(document).ready(function() {
         $("#menu").addClass("active");
     });
+</script>
+
+<script>
+    function getType() {
+        var val = document.getElementById("tipe").value;
+        if (val === "child") {
+            $("#child-menu").removeClass("hide");
+            $("#child-menu").addClass("show");    
+        }else {
+            $("#child-menu").removeClass("show");
+            $("#child-menu").addClass("hide");   
+        }
+    }
 </script>
 
 <script type="text/javascript">
