@@ -23,11 +23,45 @@
       </a>
     </li>
 
-    {!! BackMenu::getRole(Auth::user()->role_id) !!}
+    {{-- @php
+      dd(BackMenu::getRole(Auth::user()->role_id))
+    @endphp --}}
+
+    @foreach ( BackMenu::getRole(Auth::user()->role_id)['parent'] as $parent_menu )
+      @if (Arr::exists(BackMenu::getRole(Auth::user()->role_id)['parenthaschild'], $parent_menu->id))
+      <li class="menu-item">
+        <a href="javascript:void(0);" class="menu-link menu-toggle">
+          <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
+          <div data-i18n="Layouts">{!! $parent_menu->name !!}</div>
+        </a>
+  
+        <ul class="menu-sub">
+          @foreach (BackMenu::getRole(Auth::user()->role_id)['child'] as $child_menu )
+            @if ($child_menu->parent_id == $parent_menu->id)
+            <li class="menu-item">
+              <a href="layouts-without-menu.html" class="menu-link">
+                <div data-i18n="Without menu">{!! $child_menu->name !!}</div>
+              </a>
+            </li>
+            @endif
+          @endforeach
+        </ul>
+      </li>
+      @else
+      <li class="menu-item mb-2" id="{!! Str::after($parent_menu->uri, '/') !!}">
+        <a href="{!! "/admin/".$parent_menu->uri !!}" class="menu-link">
+          <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
+          <div data-i18n="Analytics">{!! $parent_menu->name !!}</div>
+        </a>
+      </li>
+      @endif
+    @endforeach
+
+    {{-- {!! BackMenu::getRole(Auth::user()->role_id) !!} --}}
 
     <!-- Dropdown -->
     {{-- <li class="menu-item active open"> --}}
-    <li class="menu-item">
+    {{-- <li class="menu-item">
       <a href="javascript:void(0);" class="menu-link menu-toggle">
         <i class="menu-icon tf-icons bx bx-layout"></i>
         <div data-i18n="Layouts">Layouts</div>
@@ -60,7 +94,7 @@
           </a>
         </li>
       </ul>
-    </li>
+    </li> --}}
 
   </ul>
 </aside>

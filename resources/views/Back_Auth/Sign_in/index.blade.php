@@ -22,7 +22,7 @@
                     <img src="{{ asset('assets/img/image-header-new-back.png') }}" class="img-fluid" alt="Image">
                     </center>
                 </div>
-                <div class="col-md-4 pt-5">
+                <div class="col-md-4 pt-4">
                     <div class="card card-plain mt-5">
                         <div class="card-header pb-3 text-center bg-transparent">
                             <h3 class="font-weight-bolder">Welcome Admin</h3>
