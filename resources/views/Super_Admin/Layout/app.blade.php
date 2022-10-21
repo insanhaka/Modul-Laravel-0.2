@@ -82,6 +82,8 @@
 
     <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
 
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Choices/choices.min.css') }}">
+
     
     @yield('css')
 
@@ -162,6 +164,7 @@
 
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
+<script src="{{ asset('assets/vendor/Choices/choices.min.js') }}"></script>
 
 @yield('js')
   </body>

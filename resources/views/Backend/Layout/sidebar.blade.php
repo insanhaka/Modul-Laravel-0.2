@@ -23,13 +23,9 @@
       </a>
     </li>
 
-    {{-- @php
-      dd(BackMenu::getRole(Auth::user()->role_id))
-    @endphp --}}
-
     @foreach ( BackMenu::getRole(Auth::user()->role_id)['parent'] as $parent_menu )
       @if (Arr::exists(BackMenu::getRole(Auth::user()->role_id)['parenthaschild'], $parent_menu->id))
-      <li class="menu-item" id="{!! Str::after($parent_menu->uri, '/') !!}">
+      <li class="menu-item open active" id="{!! Str::after($parent_menu->uri, '/') !!}">
         <a href="javascript:void(0);" class="menu-link menu-toggle">
           <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
           <div data-i18n="Layouts">{!! $parent_menu->name !!}</div>
@@ -58,43 +54,6 @@
     @endforeach
 
     {{-- {!! BackMenu::getRole(Auth::user()->role_id) !!} --}}
-
-    <!-- Dropdown -->
-    {{-- <li class="menu-item active open"> --}}
-    {{-- <li class="menu-item">
-      <a href="javascript:void(0);" class="menu-link menu-toggle">
-        <i class="menu-icon tf-icons bx bx-layout"></i>
-        <div data-i18n="Layouts">Layouts</div>
-      </a>
-
-      <ul class="menu-sub">
-        <li class="menu-item">
-          <a href="layouts-without-menu.html" class="menu-link">
-            <div data-i18n="Without menu">Without menu</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="layouts-without-navbar.html" class="menu-link">
-            <div data-i18n="Without navbar">Without navbar</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="layouts-container.html" class="menu-link">
-            <div data-i18n="Container">Container</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="layouts-fluid.html" class="menu-link">
-            <div data-i18n="Fluid">Fluid</div>
-          </a>
-        </li>
-        <li class="menu-item">
-          <a href="layouts-blank.html" class="menu-link">
-            <div data-i18n="Blank">Blank</div>
-          </a>
-        </li>
-      </ul>
-    </li> --}}
 
   </ul>
 </aside>

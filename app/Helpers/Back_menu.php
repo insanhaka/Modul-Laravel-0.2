@@ -32,10 +32,10 @@ class Back_menu
         $parent = array();
         $child = array();
         foreach ($menus as $value) {
-            if ($value->type == "parent") {
+            if ($value->type == "parent" && $value->is_active == 1) {
                 array_push($parent, $value);
             }
-            if ($value->type == "child") {
+            if ($value->type == "child" && $value->is_active == 1) {
                 array_push($child, $value);
             }
         }
@@ -44,14 +44,6 @@ class Back_menu
         foreach ($child as $result) {
             array_push($parent_has_child, $result->parent_id);
         }
-
-        // foreach ($parent as $p) {
-        //     if (Arr::exists($parent_has_child, $p->id)) {
-        //         dd("ADA KO");
-        //     }else {
-        //         dd("KO GAK ADA YA");
-        //     }
-        // }
 
         return (["parent"=>$parent, "child"=>$child, "parenthaschild"=>$parent_has_child]);
 

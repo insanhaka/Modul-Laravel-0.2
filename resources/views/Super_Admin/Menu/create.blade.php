@@ -65,7 +65,14 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Tipe Menu</label>
-                            <select class="form-select" data-allow-clear="true" id="tipe" onchange="getType()" name="menu_type">
+                            <select
+                                class="form-control"
+                                data-trigger
+                                id="tipe" 
+                                onchange="getType()" 
+                                name="menu_type"
+                                placeholder="Tipe Menu"
+                            >
                                 <option value="" selected disabled> Pilih Tipe Menu </option>
                                 <option value="parent">Parent Menu</option>
                                 <option value="child">Child Menu</option>
@@ -78,7 +85,13 @@
                     <div class="col-md-12">
                         <div class="mb-3">
                             <label class="form-label">Pilih Parent Menu</label>
-                            <select class="form-select" data-allow-clear="true" name="parent_id">
+                            <select
+                                class="form-control"
+                                data-trigger
+                                id="parent-id" 
+                                name="parent_id"
+                                placeholder="Parent Menu"
+                            >
                                 <option value="" selected disabled> Pilih Parent Menu </option>
                                 @foreach ($parent as $item)
                                 <option value="{!!$item->id!!}">{!!$item->name!!}</option>
@@ -91,7 +104,7 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleForm21" class="form-label">Icon</label>
+                            <label class="form-label">Icon</label>
                             <div class="file-loading">
                                 <input id="input-b6" class="form-control" name="icon" type="file">
                             </div>
@@ -99,9 +112,15 @@
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
-                            <label for="exampleForm21" class="form-label">Aktivasi</label>
-                            <select class="form-select form-control" aria-label="Default select example" name="is_active">
-                                <option selected disabled>-- Pilih --</option>
+                            <label class="form-label">Aktivasi</label>
+                            <select
+                                class="form-control"
+                                data-trigger
+                                id="active" 
+                                name="is_active"
+                                placeholder="Aktivasi"
+                            >
+                                <option selected disabled> Pilih Aktivasi Menu </option>
                                 <option value="1">Aktiv</option>
                                 <option value="0">Non Aktiv</option>
                             </select>
@@ -130,6 +149,20 @@
 <script>
     $(document).ready(function() {
         $("#menu").addClass("active");
+    });
+</script>
+
+<script>
+    $(document).ready(function() {
+        var type = new Choices('#tipe', {
+            allowHTML: true,
+        });
+        var parent = new Choices('#parent-id', {
+            allowHTML: true,
+        });
+        var active = new Choices('#active', {
+            allowHTML: true,
+        });
     });
 </script>
 

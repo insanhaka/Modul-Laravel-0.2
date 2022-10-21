@@ -30,6 +30,8 @@
   <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
   <script src="{{ asset('assets/js/config.js') }}"></script>
 
+  <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
+
   @yield('css')
 </head>
 
@@ -56,6 +58,8 @@
 
     <!-- Page JS -->
     <script src="{{ asset('assets/js/dashboards-analytics.js') }}"></script>
+
+    <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
 @yield('js')
 </body>
