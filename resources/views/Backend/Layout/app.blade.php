@@ -164,6 +164,17 @@
 <script src="{{ asset('assets/vendor/Krajee-file-input/themes/gly/theme.js') }}"></script>
 
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
+
+<script>
+  function sidemenu(elem) {
+    var a = document.getElementsByTagName('li')
+    for (i = 0; i < a.length; i++) {
+        a[i].classList.remove('active')
+    }
+    elem.classList.add('active');
+  }
+</script>
+
 @yield('js')
   </body>
 </html>

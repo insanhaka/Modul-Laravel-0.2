@@ -49,7 +49,7 @@
             </div>
           </span>
         </a>
-        <ul class="dropdown-menu dropdown-menu-end">
+        <ul class="dropdown-menu dropdown-menu-end" style="margin-right: -25px">
           <li>
             <a class="dropdown-item" href="#">
               <div class="d-flex">

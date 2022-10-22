@@ -45,6 +45,11 @@ class Back_menu
             array_push($parent_has_child, $result->parent_id);
         }
 
+        foreach ($parent as $i) {
+            dd(Arr::exists($parent_has_child, $i->id));
+        }
+        // dd(Arr::exists($parent_has_child, $parent_menu->id));
+
         return (["parent"=>$parent, "child"=>$child, "parenthaschild"=>$parent_has_child]);
 
         // foreach($menus as $data_menu)
