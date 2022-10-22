@@ -88,6 +88,9 @@
     <link href="{{ asset('assets/vendor/Krajee-file-input/themes/explorer-fa/theme.css') }}" rel="stylesheet" type="text/css" />
 
     <link rel="stylesheet" href="{{ asset('assets/css/sweetalert2.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Choices/choices.min.css') }}">
+    
     @yield('css')
 
   </head>
@@ -165,7 +168,9 @@
 
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
-<script>
+<script src="{{ asset('assets/vendor/Choices/choices.min.js') }}"></script>
+
+{{-- <script>
   function sidemenu(elem) {
     var a = document.getElementsByTagName('li')
     for (i = 0; i < a.length; i++) {
@@ -173,7 +178,7 @@
     }
     elem.classList.add('active');
   }
-</script>
+</script> --}}
 
 @yield('js')
   </body>

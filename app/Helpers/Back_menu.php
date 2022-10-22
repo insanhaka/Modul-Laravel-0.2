@@ -9,7 +9,7 @@ use App\Models\Role_has_menu;
 use App\Models\Permission;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
-use stdClass;
+// use stdClass;
 use Illuminate\Support\Arr;
 
 class Back_menu
@@ -45,11 +45,6 @@ class Back_menu
             array_push($parent_has_child, $result->parent_id);
         }
 
-        foreach ($parent as $i) {
-            dd(Arr::exists($parent_has_child, $i->id));
-        }
-        // dd(Arr::exists($parent_has_child, $parent_menu->id));
-
         return (["parent"=>$parent, "child"=>$child, "parenthaschild"=>$parent_has_child]);
 
         // foreach($menus as $data_menu)
@@ -71,5 +66,32 @@ class Back_menu
 
         // }
 
+    }
+
+    public function getURI()
+    {
+        $current_uri = url()->current();
+        $prefix = \Request::route()->getPrefix().'/';
+        $menu = Str::between($current_uri, $prefix, '/');
+        $fix_menu = Str::before($menu, '/');
+        // $upper_menu = Str::upper($fix_menu);
+        // $label1 = Str::replace('-', ' ', $fix_menu);
+
+        return $fix_menu;
+    }
+
+    public function getID()
+    {
+        $current_uri = url()->current();
+        $prefix = \Request::route()->getPrefix().'/';
+        $menu = Str::between($current_uri, $prefix, '/');
+        $fix_menu = Str::before($menu, '/');
+        
+        $get_menu = Menu::where('uri', $fix_menu)->first();
+        if ($get_menu == null) {
+            return null;
+        }else {
+            return $get_menu->parent_id;
+        }
     }
 }

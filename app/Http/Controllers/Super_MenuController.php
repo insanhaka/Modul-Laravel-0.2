@@ -227,9 +227,11 @@ class Super_MenuController extends Controller
     public function delete($id)
     {
         $data = Menu::find($id);
-        $hapus = $data->delete();
 
-        if ($hapus) {
+        $hapus1 = $data->delete();
+        $hapus2 = Menu::where('parent_id', $id)->delete();
+
+        if ($hapus1 && $hapus2) {
             return redirect()->route('menu.index')->with('success','Data Berhasil Dihapus');
         }else {
             return back()->with('error', 'Upps.. Error Nih');

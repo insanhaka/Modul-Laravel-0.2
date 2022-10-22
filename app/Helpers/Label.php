@@ -26,4 +26,5 @@ class Label
 
         return $label2;
     }
+
 }

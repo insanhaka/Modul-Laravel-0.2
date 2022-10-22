@@ -6,27 +6,21 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 
-class Menu extends Model
+class Article_Category extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'name',
-    ];
+    protected $table = 'article_categories';
+    protected $guarded = [];
 
     public static function boot()
     {
         parent::boot();
         static::saving(function ($model) {
-            $model->created_by = Auth::user()->name;
+            $model->created_by = Auth::user()->username;
         });
         static::updating(function ($model) {
-            $model->updated_by = Auth::user()->name;
+            $model->updated_by = Auth::user()->username;
         });
-    }
-
-    public function role()
-    {
-        return $this->belongsToMany(Role::class);
     }
 }

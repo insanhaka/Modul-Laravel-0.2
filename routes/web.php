@@ -11,6 +11,8 @@ use App\Http\Controllers\Front_DashboardController;
 use App\Http\Controllers\Back_AuthController;
 use App\Http\Controllers\Back_DashboardController;
 use App\Http\Controllers\Back_ProfileController;
+use App\Http\Controllers\Back_ArticleCategoryController;
+use App\Http\Controllers\Back_ArticleController;
 
 // Super Admin Route
 use App\Http\Controllers\Super_DashboardController;
@@ -52,6 +54,16 @@ Route::post('/post-dapur', [Back_AuthController::class, 'store']);
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
 
     Route::get('/dashboard', [Back_DashboardController::class, 'index'])->name('control');
+
+    Route::resource('kategori-artikel', Back_ArticleCategoryController::class);
+    Route::get('/kategori-artikel/{id}/delete', [Back_ArticleCategoryController::class, 'delete'])->name('kategori-artikel.delete');
+    Route::get('/kategori-artikel/{id}/activation/{data}', [Back_ArticleCategoryController::class, 'activation'])->name('kategori-artikel.activation');
+    Route::get('/kategori-artikel-serverside', [Back_ArticleCategoryController::class, 'serverside'])->name('kategori-artikel.serverside');
+
+    Route::resource('data-artikel', Back_ArticleController::class);
+    Route::get('/data-artikel/{id}/delete', [Back_ArticleController::class, 'delete'])->name('data-artikel.delete');
+    Route::get('/data-artikel/{id}/activation/{data}', [Back_ArticleController::class, 'activation'])->name('data-artikel.activation');
+    Route::get('/data-artikel-serverside', [Back_ArticleController::class, 'serverside'])->name('data-artikel.serverside');
 
 });
 
