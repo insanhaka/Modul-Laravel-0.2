@@ -60,10 +60,13 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
     Route::get('/kategori-artikel/{id}/activation/{data}', [Back_ArticleCategoryController::class, 'activation'])->name('kategori-artikel.activation');
     Route::get('/kategori-artikel-serverside', [Back_ArticleCategoryController::class, 'serverside'])->name('kategori-artikel.serverside');
 
-    Route::resource('data-artikel', Back_ArticleController::class);
-    Route::get('/data-artikel/{id}/delete', [Back_ArticleController::class, 'delete'])->name('data-artikel.delete');
-    Route::get('/data-artikel/{id}/activation/{data}', [Back_ArticleController::class, 'activation'])->name('data-artikel.activation');
-    Route::get('/data-artikel-serverside', [Back_ArticleController::class, 'serverside'])->name('data-artikel.serverside');
+    Route::resource('konten-artikel', Back_ArticleController::class);
+    Route::get('/konten-artikel/{id}/delete', [Back_ArticleController::class, 'delete'])->name('konten-artikel.delete');
+    Route::get('/konten-artikel/{id}/activation/{data}', [Back_ArticleController::class, 'activation'])->name('konten-artikel.activation');
+    Route::get('/konten-artikel-serverside', [Back_ArticleController::class, 'serverside'])->name('konten-artikel.serverside');
+    Route::post('/image-artikel-upload', [Back_ArticleController::class, 'upload_img'])->name('img-artikel.upload');
+    Route::post('/file-artikel-upload', [Back_ArticleController::class, 'upload_file'])->name('file-artikel.upload');
+    Route::post('/video-artikel-upload', [Back_ArticleController::class, 'upload_video'])->name('video-artikel.upload');
 
 });
 

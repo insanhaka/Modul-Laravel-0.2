@@ -13,7 +13,7 @@
                     <h4>Artikel</h4>
                 </div>
                 <div class="col-md-6">
-                    <a class="btn btn-primary mb-0" href="{{route('data-artikel.create')}}" role="button" style="float: right">Tambah Data</a>
+                    <a class="btn btn-primary mb-0" href="{{route('konten-artikel.create')}}" role="button" style="float: right">Tambah Data</a>
                 </div>
             </div>
         </div>
@@ -23,7 +23,7 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table table-striped responsive" id="data-artikel-datatable">
+            <table class="table table-striped responsive" id="konten-artikel-datatable">
                 <thead>
                   <tr>
                     <th scope="col">Judul</th>
@@ -66,7 +66,7 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        var art = $('#data-artikel-datatable').DataTable({
+        var art = $('#konten-artikel-datatable').DataTable({
             processing: true,
             serverSide: true,
             "language": {
@@ -75,7 +75,7 @@
                 "next": "&gt"
                 }
             },
-            ajax: "{{ route('data-artikel.serverside') }}",
+            ajax: "{{ route('konten-artikel.serverside') }}",
             order: [
                 [1, 'asc']
             ],
