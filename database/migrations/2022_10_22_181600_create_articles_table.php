@@ -19,7 +19,7 @@ class CreateArticlesTable extends Migration
             $table->string('thumbnail')->nullable();
             $table->unsignedBigInteger('article_category_id');
             $table->foreign('article_category_id')->references('id')->on('article_categories')->onDelete('cascade');
-            $table->text('article');
+            $table->text('content');
             $table->boolean('is_active')->nullable();
             $table->string('created_by', 50)->nullable();
             $table->string('updated_by', 50)->nullable();

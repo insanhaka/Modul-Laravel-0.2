@@ -19,7 +19,8 @@ class Back_ArticleController extends Controller
      */
     public function index()
     {
-        return view('Backend.Article.index');
+        $get_article = Article::all();
+        return view('Backend.Article.index', ['content'=>$get_article]);
     }
 
     /**
@@ -41,7 +42,49 @@ class Back_ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $messages = [
+            'name.required' => 'Nama kategori diisi ya..',
+            'article_category_id.required' => 'Pilih dulu kategorinya ya..',
+            'thumbnail.required' => 'Icon ditambahkan biar keren..',
+            'thumbnail.mimes' => 'Format file harus JPEG/PNG/JPG..',
+            'is_active.required' => 'Aktifasi dipilih ya..',
+        ];
+
+        $validator = Validator::make( $request->all(), [
+            'title' => 'required',
+            'article_category_id' => 'required',
+            'thumbnail' => 'required|mimes:jpeg,png,jpg',
+            'is_active' => 'required',
+        ], $messages );
+
+        if ($validator->fails()) {
+            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+        }else {
+            
+            $buat = new Article;
+            $buat->title = $request->title;
+            $buat->article_category_id = $request->article_category_id;
+            $buat->content = $request->content;
+            $buat->is_active = $request->is_active;
+            // menyimpan data file yang diupload ke variabel $file
+            $file = $request->file('thumbnail');
+            if ($file) {
+                $nama_file = time()."_".$file->getClientOriginalName();
+                // Proses file diupload ke storage
+                $path = Storage::putFileAs('public/content-thumbnail', $file, $nama_file);
+                $buat->thumbnail = $nama_file;
+            }else {
+                $buat->thumbnail = null;
+            }
+            
+            $simpan = $buat->save();
+            if ($simpan) {
+                return redirect()->route('konten-artikel.index')->with('success','Data Berhasil Dibuat');
+            }else {
+                return redirect()->route('konten-artikel.create')->with('error', 'Upps, Error nih');
+            }
+
+        }
     }
 
     /**
@@ -84,14 +127,77 @@ class Back_ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function delete($id)
     {
-        //
+        $data = Article::find($id);
+
+        $hapus = $data->delete();
+
+        if ($hapus) {
+            return redirect()->route('konten-artikel.index')->with('success','Data Berhasil Dihapus');
+        }else {
+            return back()->with('error', 'Upps.. Error Nih');
+        }
+    }
+
+    public function activation($id, $data)
+    {
+        $old = Article::find($id);
+        $old->is_active = $data;
+        $active = $old->save();
+
+        if ($active) {
+            return redirect()->route('konten-artikel.index')->with('success','Data Berhasil Diubah');
+        }else {
+            return redirect()->route('konten-artikel.index')->with('error', 'Upps, Error nih');
+        }
+
     }
 
     public function serverside()
     {
-        // 
+        $data = Article::all();
+        return DataTables::of($data)
+        
+        ->addColumn('title', function ($data) {
+            $title = $data->title;
+            return $title;
+        })
+        ->addColumn('thumbnail', function ($data) {
+            if ($data->thumbnail == null) {
+                $thumbnail = '<td> <img src="'.asset('assets/img/icon/no-image.png').'" class="img-fluid" alt="Responsive image" width="100"> </td>';
+            }else {
+                $path = Storage::url('content-thumbnail/'.$data->thumbnail);
+                $thumbnail = '<td> <img src="'.$path.'" class="img-fluid" alt="Responsive image" width="100"> </td>';
+            }
+            return $thumbnail;
+        })
+        ->addColumn('view', function ($data) {
+            $view = '<td>
+                        <button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#parentID-'.$data->id.'">
+                            Lihat
+                        </button>
+                    </td>';
+            return $view;
+        })
+        ->addColumn('activation', function ($data) {
+            if ($data->is_active == 0) {
+                $active = '<td> <a class="btn btn-secondary btn-sm" style="margin-right: 10px;" href="'.route('konten-artikel.activation', ['id'=>$data->id, 'data'=>'1']).'">OFF</a></td>';
+            }else {
+                $active = '<td> <a class="btn btn-success btn-sm" style="margin-right: 20px;" href="'.route('konten-artikel.activation', ['id'=>$data->id, 'data'=>'0']).'">ON</a> </td>';
+            }
+            return $active;
+        })
+        ->addColumn('action', function ($data) {
+            $action = '<td>
+                            <a style="margin-right: 20px;" href="'.route('konten-artikel.edit', ['konten_artikel' => $data->id]).'"><i class="fa fa-edit text-warning" style="font-size: 21px;"></i></a>
+                            
+                            <a style="margin-right: 10px;" href="'.route('konten-artikel.delete', ['id' => $data->id]).'"><i class="fa fa-trash text-danger" style="font-size: 21px;"></i></a>
+                        </td>';
+            return $action;
+        })
+        ->rawColumns(['name', 'thumbnail', 'view', 'activation', 'action'])
+        ->make(true);
     }
 
     public function upload_img(Request $request)

@@ -28,6 +28,7 @@
                   <tr>
                     <th scope="col">Judul</th>
                     <th scope="col">Thumbnail</th>
+                    <th scope="col">Lihat</th>
                     <th scope="col">Activation</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -40,6 +41,37 @@
             </table>
         </div>
     </div>
+
+    <!-- Modal -->
+    @foreach ($content as $value)
+    <div class="modal fade" id="parentID-{!!$value->id!!}" tabindex="-1" data-bs-backdrop="static" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <span class="badge rounded-pill bg-label-primary">
+                        Preview
+                    </span>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row justify-content-center">
+                        <div class="col-md-10">
+                            <h1 class="text-center">{!! $value->title !!}</h1>
+                            <hr/>
+                            <br/>
+                            {!! $value->content !!}
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endforeach
+
+</div>
 @endsection
 
 @section('js')
@@ -83,6 +115,7 @@
                 // {data: 'checkbox',name: 'checkbox', searchable: false, orderable: false},
                 {data: 'title',name: 'title'},
                 {data: 'thumbnail',name: 'thumbnail'},
+                {data: 'view',name: 'view'},
                 {data: 'activation',name: 'activation'},
                 {data: 'action',name: 'action'},
             ]
