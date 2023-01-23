@@ -7,6 +7,7 @@ import { Message } from 'primereact/message';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Button } from 'primereact/button';
+import { Badge } from 'primereact/badge';
 import { Dialog } from 'primereact/dialog';
 import Backdrop from '@mui/material/Backdrop';
 import LoadingIMG from '../../../../public/assets/img/loading.gif'
@@ -59,6 +60,17 @@ function Usertable() {
     const header = renderHeader();
     const empty = renderEmpty();
 
+    const nameTemplate = (rowData) => {
+        if (rowData.is_super == true) {
+            return <div>
+                    {rowData.name}<Badge severity="danger" style={{marginBottom: 4, marginLeft: 2}}></Badge>
+                    </div>
+        }else {
+            return <div>
+                    {rowData.name}
+                    </div>
+        }
+    }
     const activationTemplate = (rowData) => {
         if (rowData.is_active === 1) {
             return <div>
@@ -228,7 +240,7 @@ function Usertable() {
     return (
         <div>
             <DataTable value={data} header={header} stripedRows responsiveLayout="scroll" dataKey="id" filters={filters} globalFilterFields={['name', 'year']} emptyMessage={empty} paginator rows={10} >
-                <Column field="name" header="Nama" sortable></Column>
+                <Column field="name" header="Nama" sortable body={nameTemplate}></Column>
                 <Column field="email" header="Email" sortable></Column>
                 <Column field="role" header="Role" body={roleTemplate}></Column>
                 <Column field="is_active" header="Aktifasi" body={activationTemplate}></Column>

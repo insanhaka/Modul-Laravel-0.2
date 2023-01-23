@@ -24,6 +24,7 @@ class UserSeeder extends Seeder
             'password' => bcrypt('rahasia'),
             'remember_token' => Str::random(10),
             'is_active' => true,
+            'is_super' => true,
         ]);
 
         $create = Permission::create([

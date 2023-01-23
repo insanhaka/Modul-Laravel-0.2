@@ -12646,10 +12646,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primereact_password__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primereact/password */ "./node_modules/primereact/password/password.esm.js");
 /* harmony import */ var primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primereact/multiselect */ "./node_modules/primereact/multiselect/multiselect.esm.js");
 /* harmony import */ var primereact_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primereact/button */ "./node_modules/primereact/button/button.esm.js");
-/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
-/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
-/* harmony import */ var _dataservice_Roledata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../dataservice/Roledata */ "./resources/js/dataservice/Roledata.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var primereact_checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primereact/checkbox */ "./node_modules/primereact/checkbox/checkbox.esm.js");
+/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
+/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
+/* harmony import */ var _dataservice_Roledata__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../dataservice/Roledata */ "./resources/js/dataservice/Roledata.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -12665,12 +12666,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 // Data Service
 
 
 
 function UserCreateForm() {
-  var getRole = (0,_dataservice_Roledata__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  var getRole = (0,_dataservice_Roledata__WEBPACK_IMPORTED_MODULE_8__["default"])();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     loading = _useState2[0],
@@ -12694,6 +12696,10 @@ function UserCreateForm() {
     _useState10 = _slicedToArray(_useState9, 2),
     role = _useState10[0],
     setRole = _useState10[1];
+  var _useState11 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState12 = _slicedToArray(_useState11, 2),
+    supercheck = _useState12[0],
+    setSupercheck = _useState12[1];
   var submit = function submit() {
     setLoading(true);
     if (role == null) {
@@ -12725,7 +12731,8 @@ function UserCreateForm() {
         name: name,
         email: email,
         password: password,
-        role: roleID
+        role: roleID,
+        is_super: supercheck
       }).then(function (response) {
         var message = response.data.message;
         var data = response.data.data;
@@ -12755,18 +12762,18 @@ function UserCreateForm() {
       });
     }
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "col-md-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
             className: "form-label",
             children: "Nama"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
             className: "w-100",
             value: name,
             onChange: function onChange(e) {
@@ -12775,16 +12782,16 @@ function UserCreateForm() {
           })]
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "col-md-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
             className: "form-label",
             children: "Email"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
             className: "w-100",
             value: email,
             onChange: function onChange(e) {
@@ -12792,14 +12799,14 @@ function UserCreateForm() {
             }
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "col-md-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
             className: "form-label",
             children: "Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_password__WEBPACK_IMPORTED_MODULE_3__.Password, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_password__WEBPACK_IMPORTED_MODULE_3__.Password, {
             style: {
               width: '100%'
             },
@@ -12812,16 +12819,37 @@ function UserCreateForm() {
           })]
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
       className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
-        className: "col-md-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "col-md-3",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+            className: "form-label",
+            children: "Pilih Sebagai Akun Super"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+            className: "field-checkbox pt-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_checkbox__WEBPACK_IMPORTED_MODULE_6__.Checkbox, {
+              inputId: "binary",
+              checked: supercheck,
+              onChange: function onChange(e) {
+                return setSupercheck(e.checked);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
+              htmlFor: "binary",
+              children: "Super Account"
+            })]
+          })]
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
+        className: "col-md-9",
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsxs)("div", {
+          className: "mb-3",
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("label", {
             className: "form-label",
             children: "Pilih Role"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__.MultiSelect, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__.MultiSelect, {
             style: {
               width: '100%'
             },
@@ -12836,14 +12864,14 @@ function UserCreateForm() {
             required: true
           })]
         })
-      })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      })]
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
       className: "row justify-content-end mt-3",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
         className: "col-md-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("div", {
           className: "mb-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_5__.Button, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_5__.Button, {
             style: {
               width: '100%'
             },
@@ -12853,7 +12881,7 @@ function UserCreateForm() {
           })
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_10__["default"], {
       sx: {
         backgroundColor: 'rgba(255, 255, 255, 0.6)',
         zIndex: function zIndex(theme) {
@@ -12862,8 +12890,8 @@ function UserCreateForm() {
       },
       open: loading,
       onClick: handleClose,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_6__["default"],
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)("img", {
+        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_7__["default"],
         alt: "LOADING...",
         style: {
           width: 110
@@ -12874,7 +12902,7 @@ function UserCreateForm() {
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserCreateForm);
 if (document.getElementById('create-form')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(UserCreateForm, {}), document.getElementById('create-form'));
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_9__.jsx)(UserCreateForm, {}), document.getElementById('create-form'));
 }
 
 /***/ }),
@@ -12896,10 +12924,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var primereact_password__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primereact/password */ "./node_modules/primereact/password/password.esm.js");
 /* harmony import */ var primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! primereact/multiselect */ "./node_modules/primereact/multiselect/multiselect.esm.js");
 /* harmony import */ var primereact_button__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! primereact/button */ "./node_modules/primereact/button/button.esm.js");
-/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
-/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
-/* harmony import */ var _dataservice_Roledata__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../dataservice/Roledata */ "./resources/js/dataservice/Roledata.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var primereact_checkbox__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! primereact/checkbox */ "./node_modules/primereact/checkbox/checkbox.esm.js");
+/* harmony import */ var primereact_chip__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! primereact/chip */ "./node_modules/primereact/chip/chip.esm.js");
+/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
+/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
+/* harmony import */ var _dataservice_Roledata__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../../dataservice/Roledata */ "./resources/js/dataservice/Roledata.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
 function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
 function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
@@ -12915,13 +12945,15 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
+
 // Data Service
 
 
 
 function UserEditForm(_ref) {
   var id = _ref.id;
-  var getRole = (0,_dataservice_Roledata__WEBPACK_IMPORTED_MODULE_7__["default"])();
+  var getRole = (0,_dataservice_Roledata__WEBPACK_IMPORTED_MODULE_9__["default"])();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     loading = _useState2[0],
@@ -12949,6 +12981,10 @@ function UserEditForm(_ref) {
     _useState12 = _slicedToArray(_useState11, 2),
     oldrole = _useState12[0],
     setOldrole = _useState12[1];
+  var _useState13 = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
+    _useState14 = _slicedToArray(_useState13, 2),
+    supercheck = _useState14[0],
+    setSupercheck = _useState14[1];
   var submit = function submit() {
     setLoading(true);
     // Convert all atribute data role to just get ID
@@ -12965,7 +13001,8 @@ function UserEditForm(_ref) {
       name: name,
       email: email,
       password: password,
-      role: roleID
+      role: roleID,
+      is_super: supercheck
     }).then(function (response) {
       var message = response.data.message;
       var data = response.data.data;
@@ -13004,23 +13041,26 @@ function UserEditForm(_ref) {
       var roleOLD = response.data.role;
       setName(userOLD.name);
       setEmail(userOLD.email);
+      if (userOLD.is_super === 1) {
+        setSupercheck(true);
+      }
       setOldrole(roleOLD);
     })["catch"](function (error) {
       console.log(error);
     });
   }, []);
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
     className: "container",
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-12",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             className: "form-label",
             children: "Nama"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
             className: "w-100",
             value: name,
             onChange: function onChange(e) {
@@ -13029,16 +13069,16 @@ function UserEditForm(_ref) {
           })]
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             className: "form-label",
             children: "Email"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_2__.InputText, {
             className: "w-100",
             value: email,
             onChange: function onChange(e) {
@@ -13046,14 +13086,14 @@ function UserEditForm(_ref) {
             }
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-6",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             className: "form-label",
             children: "Password"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_password__WEBPACK_IMPORTED_MODULE_3__.Password, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_password__WEBPACK_IMPORTED_MODULE_3__.Password, {
             style: {
               width: '100%'
             },
@@ -13066,42 +13106,40 @@ function UserEditForm(_ref) {
           })]
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
       className: "row",
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-3",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             className: "form-label",
-            children: "Role Saat Ini"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), oldrole !== null && oldrole.map(function (data) {
-            return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
-              className: "d-flex align-items-center lh-1 me-3 p-1",
-              style: {
-                color: data.color,
-                fontWeight: 'bold'
-              },
-              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("span", {
-                className: "badge badge-dot mr-2",
-                style: {
-                  backgroundColor: data.color
-                },
-                children: "-"
-              }), data.name]
-            }, data.id);
+            children: "Pilih Sebagai Akun Super"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
+            className: "field-checkbox pt-3",
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_checkbox__WEBPACK_IMPORTED_MODULE_6__.Checkbox, {
+              inputId: "binary",
+              checked: supercheck,
+              onChange: function onChange(e) {
+                return setSupercheck(e.checked);
+              }
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
+              htmlFor: "binary",
+              children: "Super Account"
+            })]
           })]
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-9",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsxs)("div", {
           className: "mb-3",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("label", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("label", {
             className: "form-label",
             children: "Ubah Role"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__.MultiSelect, {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("br", {}), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_multiselect__WEBPACK_IMPORTED_MODULE_4__.MultiSelect, {
             style: {
-              width: '100%'
+              width: '100%',
+              marginBottom: 10
             },
             value: role,
             options: getRole,
@@ -13111,16 +13149,32 @@ function UserEditForm(_ref) {
             optionLabel: "name",
             placeholder: "Select a Role",
             display: "chip"
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("small", {
+            children: "Role Saat Ini : "
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
+            className: "flex align-items-center flex-wrap",
+            children: oldrole !== null && oldrole.map(function (data) {
+              return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_chip__WEBPACK_IMPORTED_MODULE_7__.Chip, {
+                label: data.name,
+                className: "mr-2 mb-2",
+                style: {
+                  color: data.color,
+                  fontWeight: 'bold',
+                  fontSize: 11,
+                  backgroundColor: "#f7f1e3"
+                }
+              }, data.id);
+            })
           })]
         })
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
       className: "row justify-content-end mt-3",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
         className: "col-md-2",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("div", {
           className: "mb-3",
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_5__.Button, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_5__.Button, {
             style: {
               width: '100%'
             },
@@ -13130,7 +13184,7 @@ function UserEditForm(_ref) {
           })
         })
       })
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_9__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_11__["default"], {
       sx: {
         backgroundColor: 'rgba(255, 255, 255, 0.6)',
         zIndex: function zIndex(theme) {
@@ -13139,8 +13193,8 @@ function UserEditForm(_ref) {
       },
       open: loading,
       onClick: handleClose,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)("img", {
-        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_6__["default"],
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)("img", {
+        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_8__["default"],
         alt: "LOADING...",
         style: {
           width: 110
@@ -13152,7 +13206,7 @@ function UserEditForm(_ref) {
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (UserEditForm);
 if (document.getElementById('edit-form')) {
   var value = document.getElementById('edit-form').getAttribute('userid');
-  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_8__.jsx)(UserEditForm, {
+  react_dom__WEBPACK_IMPORTED_MODULE_1__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_10__.jsx)(UserEditForm, {
     id: value
   }), document.getElementById('edit-form'));
 }
@@ -13180,11 +13234,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
 /* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_7__);
 /* harmony import */ var primereact_button__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! primereact/button */ "./node_modules/primereact/button/button.esm.js");
-/* harmony import */ var primereact_dialog__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primereact/dialog */ "./node_modules/primereact/dialog/dialog.esm.js");
-/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
-/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
-/* harmony import */ var _dataservice_Usersdata__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../dataservice/Usersdata */ "./resources/js/dataservice/Usersdata.js");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
+/* harmony import */ var primereact_badge__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! primereact/badge */ "./node_modules/primereact/badge/badge.esm.js");
+/* harmony import */ var primereact_dialog__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! primereact/dialog */ "./node_modules/primereact/dialog/dialog.esm.js");
+/* harmony import */ var _mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! @mui/material/Backdrop */ "./node_modules/@mui/material/Backdrop/Backdrop.js");
+/* harmony import */ var _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../../../../public/assets/img/loading.gif */ "./public/assets/img/loading.gif");
+/* harmony import */ var _dataservice_Usersdata__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../../dataservice/Usersdata */ "./resources/js/dataservice/Usersdata.js");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! react/jsx-runtime */ "./node_modules/react/jsx-runtime.js");
 function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) { return typeof obj; } : function (obj) { return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }, _typeof(obj); }
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); enumerableOnly && (symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; })), keys.push.apply(keys, symbols); } return keys; }
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = null != arguments[i] ? arguments[i] : {}; i % 2 ? ownKeys(Object(source), !0).forEach(function (key) { _defineProperty(target, key, source[key]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)) : ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } return target; }
@@ -13210,12 +13265,13 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 
+
 // Data
 
 
 
 function Usertable() {
-  var data = (0,_dataservice_Usersdata__WEBPACK_IMPORTED_MODULE_11__["default"])();
+  var data = (0,_dataservice_Usersdata__WEBPACK_IMPORTED_MODULE_12__["default"])();
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)(false),
     _useState2 = _slicedToArray(_useState, 2),
     loading = _useState2[0],
@@ -13262,16 +13318,16 @@ function Usertable() {
     setGlobalFilterValue(value);
   };
   var renderHeader = function renderHeader() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
       className: "row",
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("span", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("span", {
         className: "p-input-icon-right",
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("i", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("i", {
           className: "pi pi-search",
           style: {
             marginRight: 20
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_3__.InputText, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_inputtext__WEBPACK_IMPORTED_MODULE_3__.InputText, {
           value: globalFilterValue,
           onChange: onGlobalFilterChange,
           placeholder: "Cari Disini",
@@ -13285,8 +13341,8 @@ function Usertable() {
     });
   };
   var renderEmpty = function renderEmpty() {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("center", {
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_message__WEBPACK_IMPORTED_MODULE_5__.Message, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("center", {
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_message__WEBPACK_IMPORTED_MODULE_5__.Message, {
         severity: "error",
         text: "Oppsss.. Data tidak ditemukan",
         style: {
@@ -13301,10 +13357,27 @@ function Usertable() {
   };
   var header = renderHeader();
   var empty = renderEmpty();
+  var nameTemplate = function nameTemplate(rowData) {
+    if (rowData.is_super == true) {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        children: [rowData.name, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_badge__WEBPACK_IMPORTED_MODULE_9__.Badge, {
+          severity: "danger",
+          style: {
+            marginBottom: 4,
+            marginLeft: 2
+          }
+        })]
+      });
+    } else {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
+        children: rowData.name
+      });
+    }
+  };
   var activationTemplate = function activationTemplate(rowData) {
     if (rowData.is_active === 1) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
           label: "AKTIF",
           className: "p-button-success",
           "aria-label": "ON",
@@ -13315,7 +13388,7 @@ function Usertable() {
           onClick: function onClick() {
             return setUserOFF(true);
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(primereact_dialog__WEBPACK_IMPORTED_MODULE_9__.Dialog, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(primereact_dialog__WEBPACK_IMPORTED_MODULE_10__.Dialog, {
           showHeader: false,
           visible: userOFF,
           onHide: function onHide() {
@@ -13327,14 +13400,14 @@ function Usertable() {
           style: {
             width: '30vw'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
             className: "text-center mt-6",
             children: "Apakah kamu yakin ingin menonaktifkan akun ini?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
             className: "row justify-content-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
               className: "col-2 mr-4",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
                 className: "p-button-secondary p-button-text p-button-raised p-button-sm",
                 onClick: function onClick() {
                   return setUserOFF(false);
@@ -13344,9 +13417,9 @@ function Usertable() {
                 },
                 children: "Tidak"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
               className: "col-2 ml-4",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
                 id: rowData.id,
                 value: 0,
                 className: "p-button-primary p-button-text p-button-raised p-button-sm",
@@ -13361,8 +13434,8 @@ function Usertable() {
         })]
       });
     } else {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
           label: "NON AKTIF",
           className: "p-button-secondary",
           "aria-label": "OFF",
@@ -13373,7 +13446,7 @@ function Usertable() {
           onClick: function onClick() {
             return setUserON(true);
           }
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(primereact_dialog__WEBPACK_IMPORTED_MODULE_9__.Dialog, {
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(primereact_dialog__WEBPACK_IMPORTED_MODULE_10__.Dialog, {
           showHeader: false,
           visible: userON,
           onHide: function onHide() {
@@ -13385,14 +13458,14 @@ function Usertable() {
           style: {
             width: '30vw'
           },
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("p", {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("p", {
             className: "text-center mt-6",
             children: "Apakah kamu yakin ingin mengaktifkan akun ini?"
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
             className: "row justify-content-center",
-            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
               className: "col-2 mr-4",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
                 className: "p-button-secondary p-button-text p-button-raised p-button-sm",
                 onClick: function onClick() {
                   return setUserON(false);
@@ -13402,9 +13475,9 @@ function Usertable() {
                 },
                 children: "Tidak"
               })
-            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("div", {
+            }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("div", {
               className: "col-2 ml-4",
-              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+              children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
                 id: rowData.id,
                 value: 1,
                 className: "p-button-primary p-button-text p-button-raised p-button-sm",
@@ -13422,13 +13495,13 @@ function Usertable() {
   };
   var roleTemplate = function roleTemplate(rowData) {
     var listRole = rowData.roles.map(function (data) {
-      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
+      return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
         className: "d-flex align-items-center lh-1 me-3 p-1",
         style: {
           color: data.color,
           fontWeight: 'bold'
         },
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("span", {
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("span", {
           className: "badge badge-dot mr-2",
           style: {
             backgroundColor: data.color
@@ -13440,23 +13513,23 @@ function Usertable() {
     return listRole;
   };
   var settingTemplate = function settingTemplate(rowData) {
-    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+    return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
         id: rowData.id,
         onClick: userEdit,
         className: "p-button-raised p-button-rounded p-button-text p-button-warning mr-2",
         "aria-label": "Ubah",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("i", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("i", {
           className: "pi pi-file-edit",
           id: rowData.id,
           onClick: userEdit
         })
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_button__WEBPACK_IMPORTED_MODULE_8__.Button, {
         id: rowData.id,
         onClick: userDelete,
         className: "p-button-raised p-button-rounded p-button-text p-button-danger mr-2",
         "aria-label": "Hapus",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("i", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("i", {
           className: "pi pi-trash",
           id: rowData.id,
           onClick: userDelete
@@ -13560,8 +13633,8 @@ function Usertable() {
   var userEdit = function userEdit(e) {
     window.location.replace('/super/user/' + e.target.id + '/edit');
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)("div", {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsxs)(primereact_datatable__WEBPACK_IMPORTED_MODULE_1__.DataTable, {
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)("div", {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsxs)(primereact_datatable__WEBPACK_IMPORTED_MODULE_1__.DataTable, {
       value: data,
       header: header,
       stripedRows: true,
@@ -13572,28 +13645,29 @@ function Usertable() {
       emptyMessage: empty,
       paginator: true,
       rows: 10,
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
         field: "name",
         header: "Nama",
-        sortable: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
+        sortable: true,
+        body: nameTemplate
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
         field: "email",
         header: "Email",
         sortable: true
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
         field: "role",
         header: "Role",
         body: roleTemplate
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
         field: "is_active",
         header: "Aktifasi",
         body: activationTemplate
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(primereact_column__WEBPACK_IMPORTED_MODULE_2__.Column, {
         field: "setting",
         header: "Pengaturan",
         body: settingTemplate
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_13__["default"], {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(_mui_material_Backdrop__WEBPACK_IMPORTED_MODULE_14__["default"], {
       sx: {
         backgroundColor: 'rgba(255, 255, 255, 0.6)',
         zIndex: function zIndex(theme) {
@@ -13602,8 +13676,8 @@ function Usertable() {
       },
       open: loading,
       onClick: handleClose,
-      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)("img", {
-        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_10__["default"],
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)("img", {
+        src: _public_assets_img_loading_gif__WEBPACK_IMPORTED_MODULE_11__["default"],
         alt: "LOADING...",
         style: {
           width: 110
@@ -13614,7 +13688,7 @@ function Usertable() {
 }
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Usertable);
 if (document.getElementById('user-table')) {
-  react_dom__WEBPACK_IMPORTED_MODULE_6__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_12__.jsx)(Usertable, {}), document.getElementById('user-table'));
+  react_dom__WEBPACK_IMPORTED_MODULE_6__.render( /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_13__.jsx)(Usertable, {}), document.getElementById('user-table'));
 }
 
 /***/ }),
@@ -37110,6 +37184,116 @@ var SortOrder = Object.freeze({
 
 /***/ }),
 
+/***/ "./node_modules/primereact/badge/badge.esm.js":
+/*!****************************************************!*\
+  !*** ./node_modules/primereact/badge/badge.esm.js ***!
+  \****************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Badge": () => (/* binding */ Badge)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var primereact_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primereact/utils */ "./node_modules/primereact/utils/utils.esm.js");
+
+
+
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+function _typeof(obj) {
+  "@babel/helpers - typeof";
+
+  return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (obj) {
+    return typeof obj;
+  } : function (obj) {
+    return obj && "function" == typeof Symbol && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj;
+  }, _typeof(obj);
+}
+
+function _toPrimitive(input, hint) {
+  if (_typeof(input) !== "object" || input === null) return input;
+  var prim = input[Symbol.toPrimitive];
+  if (prim !== undefined) {
+    var res = prim.call(input, hint || "default");
+    if (_typeof(res) !== "object") return res;
+    throw new TypeError("@@toPrimitive must return a primitive value.");
+  }
+  return (hint === "string" ? String : Number)(input);
+}
+
+function _toPropertyKey(arg) {
+  var key = _toPrimitive(arg, "string");
+  return _typeof(key) === "symbol" ? key : String(key);
+}
+
+function _defineProperty(obj, key, value) {
+  key = _toPropertyKey(key);
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+  return obj;
+}
+
+var Badge = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(function (props, ref) {
+  var elementRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+  var otherProps = primereact_utils__WEBPACK_IMPORTED_MODULE_1__.ObjectUtils.findDiffKeys(props, Badge.defaultProps);
+  var className = (0,primereact_utils__WEBPACK_IMPORTED_MODULE_1__.classNames)('p-badge p-component', _defineProperty({
+    'p-badge-no-gutter': primereact_utils__WEBPACK_IMPORTED_MODULE_1__.ObjectUtils.isNotEmpty(props.value) && String(props.value).length === 1,
+    'p-badge-dot': primereact_utils__WEBPACK_IMPORTED_MODULE_1__.ObjectUtils.isEmpty(props.value),
+    'p-badge-lg': props.size === 'large',
+    'p-badge-xl': props.size === 'xlarge'
+  }, "p-badge-".concat(props.severity), props.severity !== null), props.className);
+  react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle(ref, function () {
+    return {
+      props: props,
+      getElement: function getElement() {
+        return elementRef.current;
+      }
+    };
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", _extends({
+    ref: elementRef,
+    className: className,
+    style: props.style
+  }, otherProps), props.value);
+}));
+Badge.displayName = 'Badge';
+Badge.defaultProps = {
+  __TYPE: 'Badge',
+  value: null,
+  severity: null,
+  size: null,
+  style: null,
+  className: null
+};
+
+
+
+
+/***/ }),
+
 /***/ "./node_modules/primereact/button/button.esm.js":
 /*!******************************************************!*\
   !*** ./node_modules/primereact/button/button.esm.js ***!
@@ -37267,6 +37451,433 @@ Button.defaultProps = {
   loading: false,
   loadingIcon: 'pi pi-spinner pi-spin',
   visible: true
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/primereact/checkbox/checkbox.esm.js":
+/*!**********************************************************!*\
+  !*** ./node_modules/primereact/checkbox/checkbox.esm.js ***!
+  \**********************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Checkbox": () => (/* binding */ Checkbox)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var primereact_hooks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primereact/hooks */ "./node_modules/primereact/hooks/hooks.esm.js");
+/* harmony import */ var primereact_tooltip__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! primereact/tooltip */ "./node_modules/primereact/tooltip/tooltip.esm.js");
+/* harmony import */ var primereact_utils__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! primereact/utils */ "./node_modules/primereact/utils/utils.esm.js");
+
+
+
+
+
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+var Checkbox = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(function (props, ref) {
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(false),
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    focusedState = _React$useState2[0],
+    setFocusedState = _React$useState2[1];
+  var elementRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+  var inputRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef(props.inputRef);
+  var onClick = function onClick(event) {
+    if (!props.disabled && !props.readOnly && props.onChange) {
+      var _checked = isChecked();
+      var checkboxClicked = event.target instanceof HTMLDivElement || event.target instanceof HTMLSpanElement;
+      var isInputToggled = event.target === inputRef.current;
+      var isCheckboxToggled = checkboxClicked && event.target.checked !== _checked;
+      if (isInputToggled || isCheckboxToggled) {
+        var value = _checked ? props.falseValue : props.trueValue;
+        props.onChange({
+          originalEvent: event,
+          value: props.value,
+          checked: value,
+          stopPropagation: function stopPropagation() {},
+          preventDefault: function preventDefault() {},
+          target: {
+            type: 'checkbox',
+            name: props.name,
+            id: props.id,
+            value: props.value,
+            checked: value
+          }
+        });
+      }
+      primereact_utils__WEBPACK_IMPORTED_MODULE_3__.DomHandler.focus(inputRef.current);
+      event.preventDefault();
+    }
+  };
+  var onFocus = function onFocus() {
+    setFocusedState(true);
+  };
+  var onBlur = function onBlur() {
+    setFocusedState(false);
+  };
+  var onKeyDown = function onKeyDown(event) {
+    if (event.code === 'Space') {
+      onClick(event);
+    }
+  };
+  var isChecked = function isChecked() {
+    return props.checked === props.trueValue;
+  };
+  react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle(ref, function () {
+    return {
+      props: props,
+      getElement: function getElement() {
+        return elementRef.current;
+      },
+      getInput: function getInput() {
+        return inputRef.current;
+      }
+    };
+  });
+  react__WEBPACK_IMPORTED_MODULE_0__.useEffect(function () {
+    primereact_utils__WEBPACK_IMPORTED_MODULE_3__.ObjectUtils.combinedRefs(inputRef, props.inputRef);
+  }, [inputRef, props.inputRef]);
+  (0,primereact_hooks__WEBPACK_IMPORTED_MODULE_1__.useUpdateEffect)(function () {
+    inputRef.current.checked = isChecked();
+  }, [props.checked, props.trueValue]);
+  var checked = isChecked();
+  var hasTooltip = primereact_utils__WEBPACK_IMPORTED_MODULE_3__.ObjectUtils.isNotEmpty(props.tooltip);
+  var otherProps = primereact_utils__WEBPACK_IMPORTED_MODULE_3__.ObjectUtils.findDiffKeys(props, Checkbox.defaultProps);
+  var ariaProps = primereact_utils__WEBPACK_IMPORTED_MODULE_3__.ObjectUtils.reduceKeys(otherProps, primereact_utils__WEBPACK_IMPORTED_MODULE_3__.DomHandler.ARIA_PROPS);
+  var className = (0,primereact_utils__WEBPACK_IMPORTED_MODULE_3__.classNames)('p-checkbox p-component', {
+    'p-checkbox-checked': checked,
+    'p-checkbox-disabled': props.disabled,
+    'p-checkbox-focused': focusedState
+  }, props.className);
+  var boxClass = (0,primereact_utils__WEBPACK_IMPORTED_MODULE_3__.classNames)('p-checkbox-box', {
+    'p-highlight': checked,
+    'p-disabled': props.disabled,
+    'p-focus': focusedState
+  });
+  var icon = primereact_utils__WEBPACK_IMPORTED_MODULE_3__.IconUtils.getJSXIcon(checked ? props.icon : '', {
+    className: 'p-checkbox-icon p-c'
+  }, {
+    props: props,
+    checked: checked
+  });
+  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(react__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({
+    ref: elementRef,
+    id: props.id,
+    className: className,
+    style: props.style
+  }, otherProps, {
+    onClick: onClick,
+    onContextMenu: props.onContextMenu,
+    onMouseDown: props.onMouseDown
+  }), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: "p-hidden-accessible"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("input", _extends({
+    ref: inputRef,
+    type: "checkbox",
+    id: props.inputId,
+    name: props.name,
+    tabIndex: props.tabIndex,
+    defaultChecked: checked,
+    onFocus: onFocus,
+    onBlur: onBlur,
+    onKeyDown: onKeyDown,
+    disabled: props.disabled,
+    readOnly: props.readOnly,
+    required: props.required
+  }, ariaProps))), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", {
+    className: boxClass
+  }, icon)), hasTooltip && /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(primereact_tooltip__WEBPACK_IMPORTED_MODULE_2__.Tooltip, _extends({
+    target: elementRef,
+    content: props.tooltip
+  }, props.tooltipOptions)));
+}));
+Checkbox.displayName = 'Checkbox';
+Checkbox.defaultProps = {
+  __TYPE: 'Checkbox',
+  id: null,
+  inputRef: null,
+  inputId: null,
+  value: null,
+  name: null,
+  checked: false,
+  trueValue: true,
+  falseValue: false,
+  style: null,
+  className: null,
+  disabled: false,
+  required: false,
+  readOnly: false,
+  tabIndex: null,
+  icon: 'pi pi-check',
+  tooltip: null,
+  tooltipOptions: null,
+  onChange: null,
+  onMouseDown: null,
+  onContextMenu: null
+};
+
+
+
+
+/***/ }),
+
+/***/ "./node_modules/primereact/chip/chip.esm.js":
+/*!**************************************************!*\
+  !*** ./node_modules/primereact/chip/chip.esm.js ***!
+  \**************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "Chip": () => (/* binding */ Chip)
+/* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var primereact_utils__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! primereact/utils */ "./node_modules/primereact/utils/utils.esm.js");
+
+
+
+function _extends() {
+  _extends = Object.assign ? Object.assign.bind() : function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+    return target;
+  };
+  return _extends.apply(this, arguments);
+}
+
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
+
+function _iterableToArrayLimit(arr, i) {
+  var _i = null == arr ? null : "undefined" != typeof Symbol && arr[Symbol.iterator] || arr["@@iterator"];
+  if (null != _i) {
+    var _s,
+      _e,
+      _x,
+      _r,
+      _arr = [],
+      _n = !0,
+      _d = !1;
+    try {
+      if (_x = (_i = _i.call(arr)).next, 0 === i) {
+        if (Object(_i) !== _i) return;
+        _n = !1;
+      } else for (; !(_n = (_s = _x.call(_i)).done) && (_arr.push(_s.value), _arr.length !== i); _n = !0) {
+        ;
+      }
+    } catch (err) {
+      _d = !0, _e = err;
+    } finally {
+      try {
+        if (!_n && null != _i["return"] && (_r = _i["return"](), Object(_r) !== _r)) return;
+      } finally {
+        if (_d) throw _e;
+      }
+    }
+    return _arr;
+  }
+}
+
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+  return arr2;
+}
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
+
+var Chip = /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.memo( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.forwardRef(function (props, ref) {
+  var elementRef = react__WEBPACK_IMPORTED_MODULE_0__.useRef(null);
+  var _React$useState = react__WEBPACK_IMPORTED_MODULE_0__.useState(true),
+    _React$useState2 = _slicedToArray(_React$useState, 2),
+    visibleState = _React$useState2[0],
+    setVisibleState = _React$useState2[1];
+  var onKeyDown = function onKeyDown(event) {
+    if (event.keyCode === 13) {
+      // enter
+      close(event);
+    }
+  };
+  var close = function close(event) {
+    setVisibleState(false);
+    if (props.onRemove) {
+      props.onRemove(event);
+    }
+  };
+  var createContent = function createContent() {
+    var content = [];
+    if (props.image) {
+      content.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("img", {
+        key: "image",
+        src: props.image,
+        alt: props.imageAlt,
+        onError: props.onImageError
+      }));
+    } else if (props.icon) {
+      content.push(primereact_utils__WEBPACK_IMPORTED_MODULE_1__.IconUtils.getJSXIcon(props.icon, {
+        key: 'icon',
+        className: 'p-chip-icon'
+      }, {
+        props: props
+      }));
+    }
+    if (props.label) {
+      content.push( /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("span", {
+        key: "label",
+        className: "p-chip-text"
+      }, props.label));
+    }
+    if (props.removable) {
+      content.push(primereact_utils__WEBPACK_IMPORTED_MODULE_1__.IconUtils.getJSXIcon(props.removeIcon, {
+        key: 'removeIcon',
+        tabIndex: 0,
+        className: 'p-chip-remove-icon',
+        onClick: close,
+        onKeyDown: onKeyDown
+      }, {
+        props: props
+      }));
+    }
+    return content;
+  };
+  var createElement = function createElement() {
+    var otherProps = primereact_utils__WEBPACK_IMPORTED_MODULE_1__.ObjectUtils.findDiffKeys(props, Chip.defaultProps);
+    var className = (0,primereact_utils__WEBPACK_IMPORTED_MODULE_1__.classNames)('p-chip p-component', {
+      'p-chip-image': props.image != null
+    }, props.className);
+    var content = props.template ? primereact_utils__WEBPACK_IMPORTED_MODULE_1__.ObjectUtils.getJSXElement(props.template, props) : createContent();
+    return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement("div", _extends({
+      ref: elementRef,
+      className: className,
+      style: props.style
+    }, otherProps), content);
+  };
+  react__WEBPACK_IMPORTED_MODULE_0__.useImperativeHandle(ref, function () {
+    return {
+      props: props,
+      getElement: function getElement() {
+        return elementRef.current;
+      }
+    };
+  });
+  return visibleState && createElement();
+}));
+Chip.displayName = 'Chip';
+Chip.defaultProps = {
+  __TYPE: 'Chip',
+  label: null,
+  icon: null,
+  image: null,
+  removable: false,
+  removeIcon: 'pi pi-times-circle',
+  className: null,
+  style: null,
+  template: null,
+  imageAlt: 'chip',
+  onImageError: null,
+  onRemove: null
 };
 
 

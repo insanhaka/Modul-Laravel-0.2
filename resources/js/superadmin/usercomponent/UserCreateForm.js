@@ -4,6 +4,7 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { MultiSelect } from 'primereact/multiselect';
 import { Button } from 'primereact/button';
+import { Checkbox } from 'primereact/checkbox';
 import Backdrop from '@mui/material/Backdrop';
 import LoadingIMG from '../../../../public/assets/img/loading.gif'
 
@@ -17,11 +18,12 @@ function UserCreateForm() {
     const handleClose = () => {
         setLoading(false);
     };
-
+    
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [role, setRole] = useState(null);
+    const [supercheck, setSupercheck] = useState(false);
 
     const submit = () =>{
         setLoading(true)
@@ -55,7 +57,8 @@ function UserCreateForm() {
                 name: name,
                 email: email,
                 password: password,
-                role: roleID
+                role: roleID,
+                is_super: supercheck,
             })
             .then(function (response) {
                 const message = response.data.message
@@ -119,7 +122,16 @@ function UserCreateForm() {
                 </div>
             </div>
             <div className='row'>
-                <div className='col-md-12'>
+                <div className='col-md-3'>
+                    <div className='mb-3'>
+                        <label className='form-label'>Pilih Sebagai Akun Super</label>
+                        <div className="field-checkbox pt-3">
+                            <Checkbox inputId="binary" checked={supercheck} onChange={e => setSupercheck(e.checked)} />
+                            <label htmlFor="binary">Super Account</label>
+                        </div>
+                    </div>
+                </div>
+                <div className='col-md-9'>
                     <div className='mb-3'>
                         <label className='form-label'>Pilih Role</label>
                         <br/>

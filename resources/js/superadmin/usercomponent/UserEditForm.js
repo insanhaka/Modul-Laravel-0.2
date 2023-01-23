@@ -4,6 +4,8 @@ import { InputText } from 'primereact/inputtext';
 import { Password } from 'primereact/password';
 import { MultiSelect } from 'primereact/multiselect';
 import { Button } from 'primereact/button';
+import { Checkbox } from 'primereact/checkbox';
+import { Chip } from 'primereact/chip';
 import Backdrop from '@mui/material/Backdrop';
 import LoadingIMG from '../../../../public/assets/img/loading.gif'
 
@@ -23,6 +25,7 @@ function UserEditForm({id}) {
     const [password, setPassword] = useState('');
     const [role, setRole] = useState(null);
     const [oldrole, setOldrole] = useState(null);
+    const [supercheck, setSupercheck] = useState(false);
 
     const submit = () => {
         setLoading(true)
@@ -40,7 +43,8 @@ function UserEditForm({id}) {
             name: name,
             email: email,
             password: password,
-            role: roleID
+            role: roleID,
+            is_super: supercheck,
         })
         .then(function (response) {
             const message = response.data.message
@@ -87,6 +91,9 @@ function UserEditForm({id}) {
             const roleOLD = response.data.role
             setName(userOLD.name)
             setEmail(userOLD.email)
+            if (userOLD.is_super === 1) {
+                setSupercheck(true)
+            }
             setOldrole(roleOLD)
         })
         .catch(function (error) {
@@ -125,21 +132,24 @@ function UserEditForm({id}) {
             <div className='row'>
                 <div className='col-md-3'>
                     <div className='mb-3'>
-                        <label className='form-label'>Role Saat Ini</label>
-                        <br/>
-                        {oldrole !== null && oldrole.map((data) =>
-                            <div className="d-flex align-items-center lh-1 me-3 p-1" key={data.id} style={{color: data.color, fontWeight: 'bold'}}>
-                                <span className="badge badge-dot mr-2" style={{backgroundColor: data.color}}>-</span>
-                                {data.name}
-                            </div>
-                        )}
+                        <label className='form-label'>Pilih Sebagai Akun Super</label>
+                        <div className="field-checkbox pt-3">
+                            <Checkbox inputId="binary" checked={supercheck} onChange={e => setSupercheck(e.checked)} />
+                            <label htmlFor="binary">Super Account</label>
+                        </div>
                     </div>
                 </div>
                 <div className='col-md-9'>
                     <div className='mb-3'>
                         <label className='form-label'>Ubah Role</label>
                         <br/>
-                        <MultiSelect style={{width: '100%'}} value={role} options={getRole} onChange={(e) => setRole(e.value)} optionLabel="name" placeholder="Select a Role" display="chip" />
+                        <MultiSelect style={{width: '100%', marginBottom: 10}} value={role} options={getRole} onChange={(e) => setRole(e.value)} optionLabel="name" placeholder="Select a Role" display="chip" />
+                        <small>Role Saat Ini : </small>
+                        <div className="flex align-items-center flex-wrap">
+                            {oldrole !== null && oldrole.map((data) =>
+                                <Chip key={data.id} label={data.name} className="mr-2 mb-2" style={{color: data.color, fontWeight: 'bold', fontSize: 11, backgroundColor: "#f7f1e3" }} />
+                            )}
+                        </div>
                     </div>
                 </div>
             </div>

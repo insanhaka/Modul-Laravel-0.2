@@ -64,6 +64,7 @@ class Super_UserController extends Controller
             $signup->email = $request->email;
             $signup->password = bcrypt($request->password);
             $signup->is_active = 1;
+            $signup->is_super = $request->is_super;
 
             $daftar = $signup->save();
 
@@ -111,6 +112,7 @@ class Super_UserController extends Controller
         $data->name = $request->name;
         $data->username = $request->username;
         $data->email = $request->email;
+        $data->is_super = $request->is_super;
         if ($request->password !== null) {
             $data->password = bcrypt($request->password);
         }
