@@ -21,6 +21,9 @@
         position: relative;
         z-index: 2;
     }
+    .p-password input {
+        width: 100%;
+    }
 </style>
 @endsection
 
@@ -41,7 +44,10 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('user.update', ['id'=>$data->id]) }}" method="POST" enctype="multipart/form-data">
+
+            <div id="edit-form" userid={{ $data->id }}></div>
+            
+            {{-- <form action="{{ route('user.update', ['id'=>$data->id]) }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">
@@ -90,12 +96,6 @@
                         </div>
                     </div>
                     <div class="col-md-6">
-                        {{-- <div class="mb-3">
-                            <label for="exampleForm21">Foto Profil</label>
-                            <div class="file-loading">
-                                <input id="input-b6" class="form-control" name="photo" type="file">
-                            </div>
-                        </div> --}}
                     </div>
                 </div>
 
@@ -108,7 +108,7 @@
                     </div>
                 </div>
 
-            </form>
+            </form> --}}
         </div>
     </div>
 </div>

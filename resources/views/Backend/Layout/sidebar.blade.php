@@ -23,41 +23,47 @@
       </a>
     </li>
 
-    @foreach ( BackMenu::getRole(Auth::user()->role_id)['parent'] as $parent_menu )
-      @if (in_array($parent_menu->id, BackMenu::getRole(Auth::user()->role_id)['parenthaschild']))
-
-      <li class="menu-item mb-2 {{ (BackMenu::getURI() == Str::after($parent_menu->uri, '/') || BackMenu::getID() == $parent_menu->id) ? 'open active' : '' }}" id="{!! Str::after($parent_menu->uri, '/') !!}" onclick="sidemenu(this)">
-        <a href="javascript:void(0);" class="menu-link menu-toggle">
-          <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
-          <div data-i18n="Layouts">{!! $parent_menu->name !!}</div>
-        </a>
-  
-        <ul class="menu-sub">
-          @foreach (BackMenu::getRole(Auth::user()->role_id)['child'] as $child_menu )
-            @if ($child_menu->parent_id == $parent_menu->id)
-            <li class="menu-item {{ (BackMenu::getURI() == Str::after($child_menu->uri, '/')) ? 'active' : '' }}" id="{!! Str::after($child_menu->uri, '/') !!}" onclick="sidemenu(this)">
-              <a href="{!! "/admin/".$child_menu->uri !!}" class="menu-link">
-                <div data-i18n="Without menu">{!! $child_menu->name !!}</div>
-              </a>
-            </li>
-            @endif
-          @endforeach
-        </ul>
-      </li>
-
-      @else
-
-      <li class="menu-item mb-2 {{ (BackMenu::getURI() == Str::after($parent_menu->uri, '/')) ? 'active' : '' }}" id="{!! Str::after($parent_menu->uri, '/') !!}" onclick="sidemenu(this)">
-        <a href="{!! "/admin/".$parent_menu->uri !!}" class="menu-link">
-          <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
-          <div data-i18n="Analytics">{!! $parent_menu->name !!}</div>
-        </a>
-      </li>
+    @if (BackMenu::getRole(Auth::user()->id) == null)
       
-      @endif
-    @endforeach
+    @else
 
-    {{-- {!! BackMenu::getRole(Auth::user()->role_id) !!} --}}
+      @foreach ( BackMenu::getRole(Auth::user()->id)['parent'] as $parent_menu )
+        @if (in_array($parent_menu->id, BackMenu::getRole(Auth::user()->id)['parenthaschild']))
+
+        <li class="menu-item mb-2 {{ (BackMenu::getURI() == Str::after($parent_menu->uri, '/') || BackMenu::getID() == $parent_menu->id) ? 'open active' : '' }}" id="{!! Str::after($parent_menu->uri, '/') !!}" onclick="sidemenu(this)">
+          <a href="javascript:void(0);" class="menu-link menu-toggle">
+            <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
+            <div data-i18n="Layouts">{!! $parent_menu->name !!}</div>
+          </a>
+    
+          <ul class="menu-sub">
+            @foreach (BackMenu::getRole(Auth::user()->id)['child'] as $child_menu )
+              @if ($child_menu->parent_id == $parent_menu->id)
+              <li class="menu-item {{ (BackMenu::getURI() == Str::after($child_menu->uri, '/')) ? 'active' : '' }}" id="{!! Str::after($child_menu->uri, '/') !!}" onclick="sidemenu(this)">
+                <a href="{!! "/admin/".$child_menu->uri !!}" class="menu-link">
+                  <div data-i18n="Without menu">{!! $child_menu->name !!}</div>
+                </a>
+              </li>
+              @endif
+            @endforeach
+          </ul>
+        </li>
+
+        @else
+
+        <li class="menu-item mb-2 {{ (BackMenu::getURI() == Str::after($parent_menu->uri, '/')) ? 'active' : '' }}" id="{!! Str::after($parent_menu->uri, '/') !!}" onclick="sidemenu(this)">
+          <a href="{!! "/admin/".$parent_menu->uri !!}" class="menu-link">
+            <img src="{!! Storage::url('icon/'.$parent_menu->icon) !!}" class="img-fluid" alt="Responsive image" width="16" style="margin-right: 18px; margin-left: 2px">
+            <div data-i18n="Analytics">{!! $parent_menu->name !!}</div>
+          </a>
+        </li>
+        
+        @endif
+      @endforeach
+
+    @endif
+
+    {{-- {!! BackMenu::getRole(Auth::user()->id) !!} --}}
 
   </ul>
 </aside>

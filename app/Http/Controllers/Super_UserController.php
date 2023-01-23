@@ -29,9 +29,10 @@ class Super_UserController extends Controller
 
         foreach ($get_user as $user) {
             if ($user->email == $request->email) {
-                return redirect()->back()->with('error', 'Email sudah terdaftar')->withInput();
-            }elseif ($user->username == $request->username) {
-                return redirect()->back()->with('error', 'Username sudah terdaftar')->withInput();
+                return response()->json([
+                    'message' => 'error',
+                    'data' => 'Email sudah terdaftar',
+                ]);
             }
         }
 
@@ -39,35 +40,45 @@ class Super_UserController extends Controller
             'name.required' => 'Nama Lengkap diisi ya..',
             'email.required' => 'Email aktif kamu dicantumkan ya..',
             'email.email' => 'Coba cek lagi emailnya, kayaknya salah..',
-            'username.required' => 'Username Diisi dong..',
             'password.required' => 'Password diisi dong..',
             'password.min' => 'Password diisi minimal 8 karakter ya..',
+            'role.required' => 'Pilih role untuk user tersebut.',
         ];
 
         $validator = Validator::make( $request->all(), [
             'name' => 'required',
             'email' => 'required|email',
-            'username' => 'required',
             'password' => 'required|min:8',
+            'role' => 'required',
         ], $messages );
 
         if ($validator->fails()) {
-            return redirect()->back()->with('error', $validator->errors()->first())->withInput();
+            return response()->json([
+                'message' => 'error',
+                'data' => $validator->errors()->first()
+            ]);
         }else {
-            
+
             $signup = new User;
             $signup->name = $request->name;
-            $signup->username = $request->username;
             $signup->email = $request->email;
             $signup->password = bcrypt($request->password);
             $signup->is_active = 1;
-            $signup->role_id = $request->roles_id;
 
             $daftar = $signup->save();
+
+            $signup->roles()->sync($request->role);
+
             if ($daftar) {
-                return redirect()->route('user.index')->with('success','Data Berhasil Dibuat');
+                return response()->json([
+                    'message' => 'success',
+                    'data' => 'Data berhasil disimpan'
+                ]);
             }else {
-                return redirect()->route('user.create')->with('error', 'Upps, Error nih')->withInput();
+                return response()->json([
+                    'message' => 'error',
+                    'data' => 'Proses gagal, harap coba lagi'
+                ]);
             }
 
         }
@@ -80,101 +91,132 @@ class Super_UserController extends Controller
         return view('Super_Admin.User.edit', ['data'=>$old, 'role'=>$role]);
     }
 
-    public function update(Request $request, $id)
+    public function user_edit(Request $request)
     {
-        $messages = [
-            'password.required' => 'Password diisi dong..',
-            'password.min' => 'Password diisi minimal 8 karakter ya..',
-        ];
-
-        $validator = Validator::make( $request->all(), [
-            'password' => 'required|min:8',
-        ], $messages );
-
-        if ($validator->fails()) {
-            return redirect()->back()->with('error', $validator->errors()->first());
-        }else {
-            
-            $data = User::find($id);
-            $data->name = $request->name;
-            $data->username = $request->username;
-            $data->email = $request->email;
-            $data->password = bcrypt($request->password);
-            $data->role_id = $request->roles_id;
-
-            $daftar = $data->save();
-            if ($daftar) {
-                return redirect()->route('user.index')->with('success','Data Berhasil Diubah');
-            }else {
-                return redirect()->route('user.edit')->with('error', 'Upps, Error nih');
-            }
+        $user_old = User::find($request->id);
+        $role_old = array();
+        foreach ($user_old->roles as $role) {
+            array_push($role_old, $role);
         }
-
+        return response()->json([
+            'message' => 'success',
+            'user' => $user_old,
+            'role' => $role_old,
+        ]);
     }
 
-    public function delete($id)
+    public function update(Request $request)
+    {        
+        $data = User::find($request->id);
+        $data->name = $request->name;
+        $data->username = $request->username;
+        $data->email = $request->email;
+        if ($request->password !== null) {
+            $data->password = bcrypt($request->password);
+        }
+        if (count($request->role) > 0) {
+            $data->roles()->sync($request->role);
+        }
+
+        $daftar = $data->save();
+        if ($daftar) {
+            return response()->json([
+                'message' => 'success',
+                'data' => 'Data berhasil di ubah'
+            ]);
+        }else {
+            return response()->json([
+                'message' => 'error',
+                'data' => 'Proses gagal'
+            ]);
+        }
+    }
+
+    public function delete(Request $request)
     {
-        $data = User::find($id);
+        $data = User::find($request->id);
         $hapus = $data->delete();
 
         if ($hapus) {
-            return redirect()->route('user.index')->with('success','Data Berhasil Dihapus');
+            return response()->json([
+                'message' => 'success',
+                'data' => 'Data berhasil di hapus',
+            ]);
         }else {
-            return redirect()->route('user.index')->with('error', 'Upps, Error nih');
+            return response()->json([
+                'message' => 'error',
+                'data' => 'Proses Gagal',
+            ]);
         }
     }
 
-    public function activation($id, $data)
+    public function activation(Request $request)
     {
-        $old = User::find($id);
-        $old->is_active = $data;
+        $old = User::find($request->id);
+        $old->is_active = $request->data;
         $active = $old->save();
 
         if ($active) {
-            return redirect()->route('user.index')->with('success','Data Berhasil Diubah');
+            return response()->json([
+                'message' => 'success',
+                'data' => 'Data berhasil di ubah',
+            ]);
         }else {
-            return redirect()->route('user.index')->with('error', 'Upps, Error nih');
+            return response()->json([
+                'message' => 'error',
+                'data' => 'Proses Gagal',
+            ]);
         }
 
     }
 
-    public function serverside()
+    public function all_user()
     {
-        $data = User::query();
-        return DataTables::eloquent($data)
-        
-        ->orderColumn('name', function ($query, $order) {
-            $query->orderBy('name', 'asc');
-        })
-        ->addColumn('username', function ($data) {
-            $username = '<td>'.$data->username.'</td>';
-            return $username;
-        })
-        ->addColumn('email', function ($data) {
-            $email = '<td>'.$data->email.'</td>';
-            return $email;
-        })
-        ->addColumn('role', function ($data) {
-            $role = '<td>'.$data->role->name.'</td>';
-            return $role;
-        })
-        ->addColumn('active', function ($data) {
-            if ($data->is_active == 0) {
-                $active = '<td> <a class="btn btn-secondary btn-sm" style="margin-right: 10px;" href="'.route('user.activation', ['id'=>$data->id, 'data'=>'1']).'">OFF</a></td>';
-            }else {
-                $active = '<td> <a class="btn btn-success btn-sm" style="margin-right: 20px;" href="'.route('user.activation', ['id'=>$data->id, 'data'=>'0']).'">ON</a> </td>';
-            }
-            return $active;
-        })
-        ->addColumn('action', function ($data) {
-            $action = '<td>
-                            <a style="margin-right: 20px;" href="'.route('user.edit', ['id' => $data->id]).'"><i class="fa fa-edit text-warning" style="font-size: 21px;"></i></a>
-                            
-                            <a style="margin-right: 10px;" href="'.route('user.delete', ['id' => $data->id]).'"><i class="fa fa-trash text-danger" style="font-size: 21px;"></i></a>
-                        </td>';
-            return $action;
-        })
-        ->rawColumns(['name', 'username', 'email', 'role', 'active', 'action'])
-        ->make(true);
+        $get_user = User::with('roles')->get();
+
+        return response()->json([
+            'message' => 'success',
+            'data' => $get_user,
+        ]);
     }
+
+    // public function serverside()
+    // {
+    //     $data = User::query();
+    //     return DataTables::eloquent($data)
+        
+    //     ->orderColumn('name', function ($query, $order) {
+    //         $query->orderBy('name', 'asc');
+    //     })
+    //     ->addColumn('username', function ($data) {
+    //         $username = '<td>'.$data->username.'</td>';
+    //         return $username;
+    //     })
+    //     ->addColumn('email', function ($data) {
+    //         $email = '<td>'.$data->email.'</td>';
+    //         return $email;
+    //     })
+    //     ->addColumn('role', function ($data) {
+    //         $role = '<td>'.$data->role->name.'</td>';
+    //         return $role;
+    //     })
+    //     ->addColumn('active', function ($data) {
+    //         if ($data->is_active == 0) {
+    //             $active = '<td> <a class="btn btn-secondary btn-sm" style="margin-right: 10px;" href="'.route('user.activation', ['id'=>$data->id, 'data'=>'1']).'">OFF</a></td>';
+    //         }else {
+    //             $active = '<td> <a class="btn btn-success btn-sm" style="margin-right: 20px;" href="'.route('user.activation', ['id'=>$data->id, 'data'=>'0']).'">ON</a> </td>';
+    //         }
+    //         return $active;
+    //     })
+    //     ->addColumn('action', function ($data) {
+    //         $action = '<td>
+    //                         <a style="margin-right: 20px;" href="'.route('user.edit', ['id' => $data->id]).'"><i class="fa fa-edit text-warning" style="font-size: 21px;"></i></a>
+                            
+    //                         <a style="margin-right: 10px;" href="'.route('user.delete', ['id' => $data->id]).'"><i class="fa fa-trash text-danger" style="font-size: 21px;"></i></a>
+    //                     </td>';
+    //         return $action;
+    //     })
+    //     ->rawColumns(['name', 'username', 'email', 'role', 'active', 'action'])
+    //     ->make(true);
+    // }
 }

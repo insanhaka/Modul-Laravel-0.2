@@ -30,7 +30,8 @@ class Back_AuthController extends Controller
             $user_role_id = Auth::user()->role_id;
             $user_role = Role::find($user_role_id);
 
-            if ($user_activation == 1 && $user_role->name !== "User")
+            // if ($user_activation == 1 && $user_role->name !== "User")
+            if ($user_activation == 1)
             {
                 // $token = $user->createToken('userToken')->accessToken;
                 return redirect()->route('control');

@@ -24,8 +24,6 @@ class UserSeeder extends Seeder
             'password' => bcrypt('rahasia'),
             'remember_token' => Str::random(10),
             'is_active' => true,
-            'status' => 99,
-            'role_id' => 1,
         ]);
 
         $create = Permission::create([
@@ -39,14 +37,19 @@ class UserSeeder extends Seeder
         ]);
 
         $role_super = Role::create([
-            'name' => 'Supermin',
+            'name' => 'Manager',
+            'color' => '#2e86de',
         ]);
         $role_admin = Role::create([
-            'name' => 'Admin',
+            'name' => 'Staff',
+            'color' => '#ff9f43',
         ]);
         $role_user = Role::create([
             'name' => 'User',
+            'color' => '#10ac84',
         ]);
+
+        $SAdmin->roles()->sync([1]);
 
     }
 }

@@ -10,10 +10,7 @@ class Role extends Model
 {
     use HasFactory;
     protected $table = 'roles';
-
-    protected $fillable = [
-        'name'
-    ];
+    protected $guarded = [];
 
     // public static function boot()
     // {
@@ -26,15 +23,20 @@ class Role extends Model
     //     });
     // }
 
+    public function users()
+    {
+        return $this->belongsToMany(User::class, 'role_user', 'user_id', 'role_id');
+    }
+
     public function menu()
     {
         return $this->belongsToMany(Menu::class);
     }
 
-    public function users()
-    {
-        return $this->belongsTo('App\Models\User', 'role_id', 'id');
-    }
+    // public function permission()
+    // {
+    //     return $this->hasMany(Permission::class);
+    // }
 
     public function permisi()
     {

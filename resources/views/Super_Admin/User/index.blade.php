@@ -24,7 +24,10 @@
 
     <div class="card">
         <div class="card-body">
-            <table class="table table-striped responsive" id="user-datatable">
+
+            <div id="user-table"></div>
+
+            {{-- <table class="table table-striped responsive" id="user-datatable">
                 <thead>
                   <tr>
                     <th scope="col">Nama</th>
@@ -37,10 +40,8 @@
                 </thead>
                 <tbody>
 
-                    {{-- Server-side Handle --}}
-
                 </tbody>
-            </table>
+            </table> --}}
         </div>
     </div>
 </div>

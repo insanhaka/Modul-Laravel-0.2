@@ -38,6 +38,12 @@
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
     <script src="{{ asset('assets/js/config.js') }}"></script>
 
+    <!-- PrimeReact -->
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Prime-React/css/primeicons.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Prime-React/css/theme.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Prime-React/css/primereact.min.css') }}" />
+    <link rel="stylesheet" href="{{ asset('assets/vendor/Prime-React/css/primeflex.min.css') }}" />
+
     <style>
         table td {
           font-size: 14px;
@@ -165,6 +171,17 @@
 <script src="{{ asset('assets/js/sweetalert2.js') }}"></script>
 
 <script src="{{ asset('assets/vendor/Choices/choices.min.js') }}"></script>
+
+<!-- PrimeReact -->
+<script src="{{ asset('assets/vendor/Prime-React/js/react.production.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/Prime-React/js/react-dom.production.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/Prime-React/js/babel.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/Prime-React/js/react-transition-group.js') }}"></script>
+<!-- PrimeReact -->
+<script src="{{ asset('assets/vendor/Prime-React/js/core.min.js') }}"></script>
+<script src="{{ asset('assets/vendor/Prime-React/js/slider.min.js') }}"></script>
+
+<script src="{{ asset('js/app.js') }}"></script>
 
 @yield('js')
   </body>

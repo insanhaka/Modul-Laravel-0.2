@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('photo')->nullable();
             $table->boolean('is_active')->nullable();
             $table->integer('status')->nullable();
+            $table->integer('role_id')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

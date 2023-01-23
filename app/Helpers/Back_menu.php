@@ -5,26 +5,36 @@ namespace App\Helpers;
 use Illuminate\Http\Request;
 use App\Models\Menu;
 use App\Models\Role;
+use App\Models\User;
 use App\Models\Role_has_menu;
 use App\Models\Permission;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 // use stdClass;
 use Illuminate\Support\Arr;
+use Auth;
 
 class Back_menu
 {
 
-    public static function getRole($role)
+    public static function getRole($user_id)
     {
-        $get_menu_id = Role_has_menu::where('role_id', $role)->get();
+        $user = User::find($user_id)->roles()->get();
 
-        if ($get_menu_id->isEmpty()) {
-            return '';
+        $y_role = array();
+        foreach ($user as $role) {
+            array_push($y_role, $role->id);
         }
 
+        $get_menu_id = Role_has_menu::whereIn('role_id', $y_role)->get();
+
+        if ($get_menu_id->isEmpty()) {
+            return null;
+        }
+
+        $menu_id = array();
         foreach ($get_menu_id as $value) {
-            $menu_id[] = $value->menu_id;
+            array_push($menu_id, $value->menu_id);
         }
 
         $menus = Menu::find($menu_id);

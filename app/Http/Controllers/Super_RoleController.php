@@ -213,4 +213,14 @@ class Super_RoleController extends Controller
             return back()->with('error', 'Upps.. Error Nih');
         }
     }
+
+    public function all_role()
+    {
+        $get_role = Role::all();
+
+        return response()->json([
+            'message' => 'success',
+            'data' => $get_role,
+        ]);
+    }
 }

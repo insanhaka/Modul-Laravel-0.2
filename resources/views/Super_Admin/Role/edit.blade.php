@@ -65,6 +65,7 @@
                                         <td>
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="view" name="permission[]" value="{{ $item->id.':/'.$item->uri }}" @if ($data->menu->contains('id',$item->id)) checked @endif>
+                                                <label>view</label>
                                             </div>
                                         </td>
                                         <td>
@@ -135,4 +136,3 @@
 @endforeach
 
 @endsection
-

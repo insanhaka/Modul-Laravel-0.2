@@ -21,6 +21,9 @@
         position: relative;
         z-index: 2;
     }
+    .p-password input {
+        width: 100%;
+    }
 </style>
 @endsection
 
@@ -41,7 +44,10 @@
 
     <div class="card">
         <div class="card-body">
-            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+
+            <div id="create-form"></div>
+
+            {{-- <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <div class="row">
@@ -95,7 +101,7 @@
                             <div class="file-loading">
                                 <input id="input-b6" class="form-control" name="photo" type="file">
                             </div>
-                        </div> --}}
+                        </div>
                     </div>
                 </div>
 
@@ -108,7 +114,7 @@
                     </div>
                 </div>
 
-            </form>
+            </form> --}}
         </div>
     </div>
 </div>

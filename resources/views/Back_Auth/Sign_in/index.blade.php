@@ -15,13 +15,13 @@
 @section('content')
     <div class="page-header min-vh-75">
         <div class="container pt-5">
-            <div class="row justify-content-evenly">
+            <div class="row justify-content-center">
 
-                <div class="col-md-5">
+                {{-- <div class="col-md-5">
                     <center>
                     <img src="{{ asset('assets/img/image-header-new-back.png') }}" class="img-fluid" alt="Image">
                     </center>
-                </div>
+                </div> --}}
                 <div class="col-md-4 pt-4">
                     <div class="card card-plain mt-5">
                         <div class="card-header pb-3 text-center bg-transparent">

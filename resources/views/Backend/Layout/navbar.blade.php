@@ -74,7 +74,7 @@
               <span class="align-middle">My Profile</span>
             </a>
           </li>
-          @if (Auth::user()->role_id == 1)
+          @if (Auth::user()->roles()->where('role_id', 1)->get())
           <li>
             <a class="dropdown-item" href="/super/setting">
               <i class="bx bx-cog me-2"></i>
