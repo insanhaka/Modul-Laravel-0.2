@@ -78,7 +78,7 @@ class Back_menu
 
     }
 
-    public function getURI()
+    public static function getURI()
     {
         $current_uri = url()->current();
         $prefix = \Request::route()->getPrefix().'/';
@@ -90,7 +90,7 @@ class Back_menu
         return $fix_menu;
     }
 
-    public function getID()
+    public static function getID()
     {
         $current_uri = url()->current();
         $prefix = \Request::route()->getPrefix().'/';

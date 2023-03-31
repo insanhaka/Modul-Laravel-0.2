@@ -8,7 +8,6 @@ import ReactDOM from 'react-dom';
 import axios from 'axios';
 import { Button } from 'primereact/button';
 import { Badge } from 'primereact/badge';
-import { Dialog } from 'primereact/dialog';
 import Backdrop from '@mui/material/Backdrop';
 import LoadingIMG from '../../../../public/assets/img/loading.gif'
 
@@ -22,8 +21,6 @@ function Usertable() {
     const handleClose = () => {
         setLoading(false);
     };
-    const [userON, setUserON] = useState(false);
-    const [userOFF, setUserOFF] = useState(false);
 
     // TABEL
     const [globalFilterValue, setGlobalFilterValue] = useState('');
@@ -74,42 +71,12 @@ function Usertable() {
     const activationTemplate = (rowData) => {
         if (rowData.is_active === 1) {
             return <div>
-                    <Button label="AKTIF" className="p-button-success" aria-label="ON" style={{height: 30, fontSize: 11}} onClick={() => setUserOFF(true)}/>
-                        <Dialog showHeader={false} visible={userOFF} onHide={() => setUserOFF(false)} breakpoints={{'960px': '75vw'}} style={{width: '30vw'}} >
-                            <p className='text-center mt-6'>Apakah kamu yakin ingin menonaktifkan akun ini?</p>
-                            <div className='row justify-content-center'>
-                                <div className='col-2 mr-4'>
-                                    <Button className="p-button-secondary p-button-text p-button-raised p-button-sm" onClick={() => setUserOFF(false)} style={{fontWeight: 'bold'}}>
-                                        Tidak
-                                    </Button>
-                                </div>
-                                <div className='col-2 ml-4'>
-                                    <Button id={rowData.id} value={0} className="p-button-primary p-button-text p-button-raised p-button-sm" onClick={userActivation} style={{fontWeight: 'bold'}}>
-                                        Ya
-                                    </Button>
-                                </div>
-                            </div>
-                        </Dialog>
+                    <Button label="AKTIF" className="p-button-success" aria-label="ON" style={{height: 30, fontSize: 11}} onClick={() => userActivation(rowData.id, 0)}/>
                 </div>
         }else {
             return <div>
-                    <Button label="NON AKTIF" className="p-button-secondary" aria-label="OFF" style={{height: 30, fontSize: 11}} onClick={() => setUserON(true)}/>
-                    <Dialog showHeader={false} visible={userON} onHide={() => setUserON(false)} breakpoints={{'960px': '75vw'}} style={{width: '30vw'}} >
-                        <p className='text-center mt-6'>Apakah kamu yakin ingin mengaktifkan akun ini?</p>
-                        <div className='row justify-content-center'>
-                            <div className='col-2 mr-4'>
-                                <Button className="p-button-secondary p-button-text p-button-raised p-button-sm" onClick={() => setUserON(false)} style={{fontWeight: 'bold'}}>
-                                    Tidak
-                                </Button>
-                            </div>
-                            <div className='col-2 ml-4'>
-                                <Button id={rowData.id} value={1} className="p-button-primary p-button-text p-button-raised p-button-sm" onClick={userActivation} style={{fontWeight: 'bold'}}>
-                                    Ya
-                                </Button>
-                            </div>
-                        </div>
-                    </Dialog>
-            </div>
+                    <Button label="NON AKTIF" className="p-button-secondary" aria-label="OFF" style={{height: 30, fontSize: 11}} onClick={() => userActivation(rowData.id, 1)}/>
+                </div>
         }
     }
     const roleTemplate = (rowData) => {
@@ -128,11 +95,11 @@ function Usertable() {
                 </div>
     }
 
-    const userActivation = (e)=> {
+    const userActivation = (id, data)=> {
         setLoading(true)
         axios.post('/api/user-activation', {
-            id: e.target.id,
-            data: e.target.value,
+            id: id,
+            data: data,
         })
         .then(function (response) {
             if (response.data.message === 'success') {
@@ -152,8 +119,7 @@ function Usertable() {
                     icon: 'success',
                     title: response.data.data
                 })
-                setUserOFF(false)
-                setUserON(false)
+                setLoading(false)
                 window.location.reload();
                 
             }else {
@@ -173,8 +139,6 @@ function Usertable() {
                     icon: 'error',
                     title: response.data.data
                 })
-                setUserOFF(false)
-                setUserON(false)
                 setLoading(false)
             }
         })

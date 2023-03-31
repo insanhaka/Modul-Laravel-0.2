@@ -7,7 +7,7 @@ use Illuminate\Support\Str;
 
 class Label
 {
-    public function label1()
+    public static function label1()
     {
         $current_uri = url()->current();
         $prefix = \Request::route()->getPrefix().'/';
@@ -19,7 +19,7 @@ class Label
         return $label1;
     }
 
-    public function label2()
+    public static function label2()
     {
         $last_uri = Str::title(request()->segment(count(request()->segments())));
         $label2 = Str::replace('-', ' ', $last_uri);
